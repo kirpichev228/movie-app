@@ -1,12 +1,17 @@
 import React from 'react'
-import Item from './Item'
-import { products } from './products'
+import ItemFill from './ItemFill'
+import MovieInfo from './MovieInfo'
+import Navigation from './Navigation'
+
 
 const Main = () => {
+
   return (
-    <div className=' grid grid-cols-7 gap-4 p-5' >
-        <Item product={ products[0] }/>
-    </div>
+    <>
+      <MovieInfo/>
+      <Navigation/>
+      <ItemFill/>
+    </>
   )
 }
 

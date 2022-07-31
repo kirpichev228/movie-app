@@ -1,0 +1,28 @@
+.infoBtn {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    margin-left: 256px;
+    margin-top: 12px;
+    --tw-bg-opacity: 1;
+    background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+    border-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgb(51 65 85 / var(--tw-border-opacity));
+    border-radius: 20px;
+    transform: rotate(90deg);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 15.5px;
+    display: flex;
+    justify-content: center;
+    transition-duration: 0.3s;
+
+}
+
+.infoBtn:hover {
+    transition-duration: 0.3s;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}

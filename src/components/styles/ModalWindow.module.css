@@ -1,0 +1,56 @@
+
+.modalWindow {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+}
+
+.modalWindow.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContainer {
+    width: 450px;
+    /* height: 700px; */
+    padding: 40px 50px;
+    border: 2px solid #db4079;
+    background-color: #211e21;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+input[type='date'] {
+    ::-webkit-calendar-picker-indicator {
+        background-color: #db4079;
+    }
+}
+
+.cancelButton,
+.submitButton {
+    width: 130px;
+    height: 40px;
+    margin-left: 15px;
+    border: #db4079 2px solid;
+    border-radius: 7px;
+    font-size: 19px;
+    transition-duration: 0.3s;
+    color: #db4079;
+}
+
+.cancelButton:hover,
+.submitButton:hover {
+    background-color: #db4079;
+    color: white;
+    transition-duration: 0.3s;
+}

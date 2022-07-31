@@ -5,7 +5,7 @@ import Main from './components/Main';
 
 function App() {
   return (
-    <div className="App bg-slate-800 text-white">
+    <div className="App bg-[#2e2b30] text-white flex flex-col items-center">
       <Header/>
       <Main/>
     </div>
