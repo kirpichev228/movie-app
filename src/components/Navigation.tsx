@@ -1,48 +1,71 @@
 import React, { useState } from 'react'
 import { useItems } from './customHooks/useItems'
-import ModalAdd from './ModalAdd'
+import ModalAdd from './ModalAddSample'
 import SortButton from './UI/SortBtn/SortButton'
 import ManageBtn from './UI/ManageList/ManageBtn'
+import Select from './UI/Select/Select'
 
 const Navigation = () => {
 
-    const { item } = useItems()
+    const { item, setItem } = useItems()
     const [modal, setModal] = useState(false)
+    const [modalContent, setModalContent] = useState('')
+    const [selectedSort, setSelectedSort] = useState('')
+
+    const sortFilms = (sort) => {
+        setSelectedSort(sort)
+        console.log(sort)
+        console.log(item)
+
+        setItem( [...item].sort( (a, b) => a[sort].localeCompare(b[sort]) ) )
+    }
+
     return (
         <>
             <nav className=" h-12 w-11/12 py-8  border-b flex items-center justify-between" >
-                <ul className="flex gap-7">
-                    <li>
-                        <SortButton>ALL</SortButton>
-                    </li>
-                    <li>
-                        <SortButton>DOCUMENTARY</SortButton>
-                    </li>
-                    <li>
-                        <SortButton>COMEDY</SortButton>
-                    </li>
-                    <li>
-                        <SortButton>HORROR</SortButton>
-                    </li>
-                    <li>
-                        <SortButton>CRIME</SortButton>
-                    </li>
-                </ul>
+                <div className="flex gap-7">
+                    <SortButton> ALL </SortButton>
+                    <SortButton> DOCUMENTARY </SortButton>
+                    <SortButton> COMEDY </SortButton>
+                    <SortButton> HORROR </SortButton>
+                    <SortButton> CRIME </SortButton>
+                </div>
                 <div className="flex gap-6">
-                    <ManageBtn onClick={()=>setModal(true)}>Add film</ManageBtn>
-                    <ManageBtn onClick={()=>setModal(true)}>edit film</ManageBtn>
-                    <ManageBtn onClick={()=>setModal(true)}>delete film</ManageBtn>
-                    <ModalAdd visible={modal} setVisible={setModal}/>
+                    <ManageBtn onClick={ ()=>{
+                        setModal(true)
+                        setModalContent('add')
+                    } }
+                    >
+                        Add film
+                    </ManageBtn>
+                    <ManageBtn onClick={ ()=>{
+                        setModal(true)
+                        setModalContent('edit')
+                    } }
+                    >
+                        Edit film
+                    </ManageBtn>
+                    <ManageBtn onClick={ ()=>{
+                        setModal(true)
+                        setModalContent('delete')
+                    } }
+                    >
+                        Delete film
+                    </ManageBtn>
+                    <ModalAdd visible={ modal } setVisible={ setModal } content={modalContent}/>
                 </div>
-                <div className="">
-                    <span className=" opacity-75 mx-2">SORT BY</span>
-                    <select name="" id="" className=" bg-slate-600 rounded-md">
-                        <option value="ae">by something</option>
-                    </select>
-                </div>
+                <Select 
+                    value={ selectedSort }
+                    onChange={ sortFilms }
+                    defaultValue='Sort by:'
+                    options={[
+                        {value: 'title', name: 'by title'},
+                        {value: 'release_date', name: 'by year'}
+                    ]}
+                />
             </nav>
-            <span className=' self-start ml-[4%] mt-5 text-xl'>
-                {item.length} movies found
+            <span className='self-start ml-[4%] mt-5 text-xl'>
+                { item.length } movies found
             </span>
         </>
   )

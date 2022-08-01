@@ -4,10 +4,10 @@ import Multiselect from 'multiselect-react-dropdown'
 const CheckboxDropDown = () => {
     
     const data = [
-        {genre: 'Documentary', id: 1},
-        {genre: 'Comedy', id: 2},
-        {genre: 'Horror', id: 3},
-        {genre: 'Crime', id: 4},
+        { genre: 'Documentary', id: 1 },
+        { genre: 'Comedy', id: 2 },
+        { genre: 'Horror', id: 3 },
+        { genre: 'Crime', id: 4 },
     ]
 
     const [options] = useState(data)

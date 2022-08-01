@@ -6,7 +6,7 @@ type btnManage = {
   onClick(): void
 }
 
-const ManageBtn = ({children, ...props}:btnManage) => {
+const ManageBtn = ({ children, ...props }:btnManage) => {
   return (
     <button className={ classes.manageBtns } {...props}>
         { children.toUpperCase() }

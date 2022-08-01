@@ -14,7 +14,7 @@ const SortButton = (props:btnType) => {
 
   return (
     <button 
-      className={isPicked ? classes.sortBtn : classes.sortBtnPicked}
+      className={ isPicked ? classes.sortBtn : classes.sortBtnPicked }
       onClick={ isPickedCheck }
     >
       {props.children}
