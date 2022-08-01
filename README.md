@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+## To run API server check this: https://github.com/VarvaraZadnepriak/MoviesAPI.ReactJS
+
 In the project directory, you can run:
 
 ### `npm start`
