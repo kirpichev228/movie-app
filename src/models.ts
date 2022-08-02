@@ -16,3 +16,7 @@ export interface IItem {
 export interface IMoviesResponce {
     data:IItem[]
 }
+
+export interface IStoreItem {
+    item: IItem
+  }

@@ -18,6 +18,7 @@ const Navigation = () => {
         console.log(item)
 
         setItem( [...item].sort( (a, b) => a[sort].localeCompare(b[sort]) ) )
+            
     }
 
     return (

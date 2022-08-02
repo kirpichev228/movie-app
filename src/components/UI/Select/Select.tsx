@@ -1,6 +1,13 @@
 import React from 'react'
 
-const Select = ({options, defaultValue, value, onChange}) => {
+interface ISelectProps {
+    options: string[]
+    defaultValue: string
+    value: string
+    // onChange: void
+}
+
+const Select = ({options, defaultValue, value, onChange}: ISelectProps) => {
   return (
     <>
         <div className="">

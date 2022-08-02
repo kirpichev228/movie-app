@@ -3,9 +3,9 @@ import React from 'react'
 const Header = () => {
   return (
     <header className='h-24 text-white flex justify-between items-center p-5 w-full'>
-        <span className=' text-4xl font-bold'>
+        <h1 className=' text-4xl font-bold text-[#db4079]'>
             MovieApp
-        </span>
+        </h1>
         <input 
             type='text' 
             placeholder='Search...'
