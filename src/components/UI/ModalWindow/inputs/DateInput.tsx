@@ -1,10 +1,15 @@
 import React from 'react'
 
-const DateInput = () => {
+type datePropsType = {
+  value: string
+}
+
+const DateInput = (props:datePropsType) => {
   return (
     <label className='text-xl font-light w-full text-[#db4079] mt-4'>
         REALESE DATE
         <input 
+            value={ props.value }
             type="date" 
             min='1900-01-01'
             max='2022-12-31'

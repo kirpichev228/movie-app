@@ -19,4 +19,27 @@ export interface IMoviesResponce {
 
 export interface IStoreItem {
     item: IItem
-  }
+}
+
+export type btnManage = {
+    children: string
+    onClick(): void
+}
+
+export interface ISelectProps {
+
+    options: optionsType[]
+    defaultValue: string
+    value: string
+    onChange: any
+}
+
+export type optionsType = {
+    value: string,
+    name: string
+}
+
+export type reducerActionType = {
+    type: string
+    payload: IItem
+}

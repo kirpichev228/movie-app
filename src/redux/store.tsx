@@ -1,5 +1,5 @@
 import { createStore } from "redux"
-import { IStoreItem } from "../models"
+import { IStoreItem, reducerActionType } from "../models"
 
 const defaultState: IStoreItem = {
     item: {
@@ -18,11 +18,15 @@ const defaultState: IStoreItem = {
     }
 }
 
-const reducer = (state = defaultState, action) => {
+const reducer = (state = defaultState, action: reducerActionType) => {
     switch(action.type) {
 
         case 'PICK_MOVIE':
             return {...state, item: state.item = action.payload}
+        
+        case 'ADD_MOVIE':
+            return{...state, }
+
         default:
             return state
     }

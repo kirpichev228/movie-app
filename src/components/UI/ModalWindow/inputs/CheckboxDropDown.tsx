@@ -1,14 +1,31 @@
 import React, {useState} from 'react'
 import Multiselect from 'multiselect-react-dropdown'
 
-const CheckboxDropDown = () => {
+type CHBDDType = {
+    value: string[]
+}
+
+const CheckboxDropDown = (props:CHBDDType) => {
     
     const data = [
-        { genre: 'Documentary', id: 1 },
-        { genre: 'Comedy', id: 2 },
-        { genre: 'Horror', id: 3 },
-        { genre: 'Crime', id: 4 },
+        { genre: 'Documentary'},
+        { genre: 'Comedy'},
+        { genre: 'Horror'},
+        { genre: 'Crime'},
+        { genre: 'Action'},
+        { genre: 'Science Fiction'},
+        { genre: 'Fantasy'},
+        { genre: 'Animation'},
+        { genre: 'Adventure'},
+        { genre: 'Family'},
+        { genre: 'Drama'},
+        { genre: 'Romance'},
+        { genre: 'Thriller'},
+        { genre: 'Music'},
+        { genre: 'War'},
+        { genre: 'Mystery'}
     ]
+    // console.log (data)
 
     const [options] = useState(data)
 
@@ -16,6 +33,9 @@ const CheckboxDropDown = () => {
         <label className='text-xl font-light w-full text-[#db4079] mt-4'>
             GENRE
             <Multiselect 
+                selectedValues={props.value.map((item) => {
+                    return {genre: item}
+                } )}
                 options = { options } 
                 displayValue = 'genre' 
                 showCheckbox = { true }

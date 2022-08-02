@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import { useDispatch } from 'react-redux'
 import { IItem } from '../models'
 import { useItems } from './customHooks/useItems'
 import Item from './Item'
@@ -7,13 +7,10 @@ import Item from './Item'
 const ItemFill = () => {
 
     const { loading, error, item } = useItems()
-    const [pickedFilm, setPickedFilm] = useState<IItem>()
     const dispatch = useDispatch()
-    const movie = useSelector( state => state.item )
-    console.log('cock', movie)
 
-    const addMovie = (cum) => {
-      dispatch({type: 'PICK_MOVIE', payload: cum} )
+    const showMovie = (item:IItem) => {
+      dispatch({type: 'PICK_MOVIE', payload: item} )
     }
 
   return (
@@ -24,7 +21,7 @@ const ItemFill = () => {
           // console.log(item)
           // setPickedFilm(item)
           // console.log(pickedFilm)
-          addMovie(item)
+          showMovie(item)
         } }/>) }
     </div>
   )

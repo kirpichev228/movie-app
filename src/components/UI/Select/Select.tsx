@@ -1,11 +1,7 @@
 import React from 'react'
+import { ISelectProps } from '../../../models'
 
-interface ISelectProps {
-    options: string[]
-    defaultValue: string
-    value: string
-    // onChange: void
-}
+
 
 const Select = ({options, defaultValue, value, onChange}: ISelectProps) => {
   return (
@@ -13,11 +9,11 @@ const Select = ({options, defaultValue, value, onChange}: ISelectProps) => {
         <div className="">
             <span className=" opacity-75 mx-2">SORT BY</span>
             <select 
-                name="" 
-                id="" 
+                // name="" 
+                // id="" 
                 className=" bg-slate-600 rounded-md"
                 value={value}
-                onChange={e => onChange(e.target.value)}
+                onChange={event => onChange(event.target.value)}
             >
                 <option disabled value="">{ defaultValue }</option>
 

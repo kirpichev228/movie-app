@@ -4,6 +4,7 @@ import ModalAdd from './ModalAddSample'
 import SortButton from './UI/SortBtn/SortButton'
 import ManageBtn from './UI/ManageList/ManageBtn'
 import Select from './UI/Select/Select'
+import { useDispatch } from 'react-redux'
 
 const Navigation = () => {
 
@@ -14,12 +15,13 @@ const Navigation = () => {
 
     const sortFilms = (sort) => {
         setSelectedSort(sort)
-        console.log(sort)
-        console.log(item)
-
         setItem( [...item].sort( (a, b) => a[sort].localeCompare(b[sort]) ) )
-            
     }
+
+    const dispatch = useDispatch()
+    // const addMovie = (item:IItem) => {
+    //     dispatch({type: 'ADD_MOVIE', payload: item} )
+    //   }
 
     return (
         <>
@@ -35,6 +37,7 @@ const Navigation = () => {
                     <ManageBtn onClick={ ()=>{
                         setModal(true)
                         setModalContent('add')
+                        addMovie(item)
                     } }
                     >
                         Add film

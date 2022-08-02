@@ -9,20 +9,28 @@ const AddModal = () => {
         <TextInput 
             heading='Movie title' 
             placeholder='Enter Movie Title'
+            value={''}
         />
-        <DateInput/>
+        <DateInput
+            value=''
+        />
         <TextInput 
             heading='movie url' 
             placeholder='Movie URL'
+            value={''}
         />
-        <CheckboxDropDown/>
+        <CheckboxDropDown
+            value={[]}
+        />
         <TextInput 
             heading='overview' 
             placeholder='Overview here'
+            value={''}
         />
         <TextInput 
             heading='runtime' 
             placeholder='Runtime here'
+            value={''}
         />
     </>
   )

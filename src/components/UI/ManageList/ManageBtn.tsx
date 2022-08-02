@@ -1,10 +1,6 @@
 import React from 'react'
+import { btnManage } from '../../../models'
 import classes from './ManageBtns.module.css'
-
-type btnManage = {
-  children: string
-  onClick(): void
-}
 
 const ManageBtn = ({ children, ...props }:btnManage) => {
   return (

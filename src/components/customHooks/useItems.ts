@@ -1,8 +1,6 @@
 import axios, { AxiosError } from "axios"
 import { useState, useEffect } from "react"
 import { IItem, IMoviesResponce } from "../../models"
-import { connect } from "react-redux"
-
 
 export function useItems () {
     const [item, setItem] = useState<IItem[]>([])
@@ -27,13 +25,6 @@ export function useItems () {
     useEffect(() => {
         fetchItems()
     }, [])
-
-    function mapStateToProps(state) {
-        console.log('mapStatetoprops >', state);
-        return{
-            item: state.item
-        }
-    }
 
     return {item, loading, error, setItem}
 }
