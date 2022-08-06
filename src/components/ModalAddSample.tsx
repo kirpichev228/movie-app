@@ -17,8 +17,13 @@ const ModalAdd = ({visible, setVisible, content}:visibility) => {
         rootClasses.push(classes.active)
     }
 
+    const nullifyModal = () => {
+        setVisible(false)
+        
+    }
+
   return (
-    <div className={ rootClasses.join(' ') } onClick={ ()=> setVisible(false) }>
+    <div className={ rootClasses.join(' ') } onClick={ nullifyModal }>
         <div className={ classes.modalContainer } onClick={ (e) => e.stopPropagation() }>
             <h2 className=" text-4xl font-thin w-full items-center flex justify-between">
                 { content === 'add' && 'ADD MOVIE' }
@@ -35,7 +40,10 @@ const ModalAdd = ({visible, setVisible, content}:visibility) => {
             { content === 'edit' && <EditModal/> }
             { content === 'delete' && <DeleteModal/> }
             <div className="w-full flex items-center justify-end mt-8">
-                <button className={ classes.cancelButton }>
+                <button
+                    className={ classes.cancelButton }
+                    onClick={ nullifyModal }
+                >
                     CANCEL
                 </button>
                 <button className={ classes.submitButton }>

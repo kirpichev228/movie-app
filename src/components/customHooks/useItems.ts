@@ -11,9 +11,10 @@ export function useItems () {
         try {
         setError('')
         setLoading(true)
-        const response = await axios.get<IMoviesResponce>('http://localhost:4000/movies?limit=12')
+        const response = await axios.get<IMoviesResponce>('http://localhost:4000/movies?limit=20')
         setItem(response.data.data)
-
+        console.log(response);
+        
         setLoading(false)
         } catch (e: unknown) {
         const error = e as AxiosError

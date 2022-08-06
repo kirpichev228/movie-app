@@ -1,10 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { IItem, IStoreItem } from '../models'
 import classes from './styles/MovieInfo.module.css'
 
 const MovieInfo = () => {
   
-  const movie = useSelector( state => state.item )
+  const movie: IItem = useSelector( (state: IStoreItem) => state.item )
 
   return (
     <div className={ classes.infoContainer }>

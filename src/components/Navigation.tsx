@@ -4,24 +4,21 @@ import ModalAdd from './ModalAddSample'
 import SortButton from './UI/SortBtn/SortButton'
 import ManageBtn from './UI/ManageList/ManageBtn'
 import Select from './UI/Select/Select'
-import { useDispatch } from 'react-redux'
+
 
 const Navigation = () => {
 
     const { item, setItem } = useItems()
-    const [modal, setModal] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
     const [modalContent, setModalContent] = useState('')
     const [selectedSort, setSelectedSort] = useState('')
 
-    const sortFilms = (sort) => {
+    const sortFilms = (sort: string) => {
         setSelectedSort(sort)
         setItem( [...item].sort( (a, b) => a[sort].localeCompare(b[sort]) ) )
+        console.log(item);
+        
     }
-
-    const dispatch = useDispatch()
-    // const addMovie = (item:IItem) => {
-    //     dispatch({type: 'ADD_MOVIE', payload: item} )
-    //   }
 
     return (
         <>
@@ -35,28 +32,28 @@ const Navigation = () => {
                 </div>
                 <div className="flex gap-6">
                     <ManageBtn onClick={ ()=>{
-                        setModal(true)
+                        setIsOpen(true)
                         setModalContent('add')
-                        addMovie(item)
                     } }
                     >
                         Add film
                     </ManageBtn>
                     <ManageBtn onClick={ ()=>{
-                        setModal(true)
+                        setIsOpen(true)
                         setModalContent('edit')
+                        setIsOpen(true)
                     } }
                     >
                         Edit film
                     </ManageBtn>
                     <ManageBtn onClick={ ()=>{
-                        setModal(true)
+                        setIsOpen(true)
                         setModalContent('delete')
                     } }
                     >
                         Delete film
                     </ManageBtn>
-                    <ModalAdd visible={ modal } setVisible={ setModal } content={modalContent}/>
+                    { isOpen && <ModalAdd visible={ isOpen } setVisible={ setIsOpen } content={modalContent}/>}
                 </div>
                 <Select 
                     value={ selectedSort }

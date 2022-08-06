@@ -27,7 +27,6 @@ export type btnManage = {
 }
 
 export interface ISelectProps {
-
     options: optionsType[]
     defaultValue: string
     value: string
@@ -42,4 +41,18 @@ export type optionsType = {
 export type reducerActionType = {
     type: string
     payload: IItem
+}
+
+export enum MovieAsctionEnum  {
+    add = 'ADD_MOVIE',
+    pick = 'PICK_MOVIE',
+    delete = 'DELETE_MOVIE',
+    edit = 'EDIT_MOVIE',
+    cancel = 'CANCEL'
+}
+
+export enum ListFilterEnum {
+    set = 'SET_LIST',
+    filterName = 'FILTER_NAME',
+    filterYear = 'FILTER_YEAR'
 }
