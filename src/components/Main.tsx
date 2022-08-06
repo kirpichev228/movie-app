@@ -10,7 +10,7 @@ const Main = () => {
     <>
       <MovieInfo/>
       <Navigation/>
-      <ItemFill/>
+      {/* <ItemFill/> */}
     </>
   )
 }

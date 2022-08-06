@@ -1,5 +1,5 @@
 import { createStore } from "redux"
-import { MovieAsctionEnum, IStoreItem, reducerActionType } from "../models"
+import { MovieAsctionEnum, IStoreItem, reducerActionType, ListFilterEnum } from "../models"
 
 const defaultState: IStoreItem = {
     item: {
@@ -15,7 +15,10 @@ const defaultState: IStoreItem = {
       title: 'ой',
       vote_average: 8081,
       vote_count: 0,
-    }
+    },
+    itemsList: [
+
+    ]
 }
 
 const reducer = (state = defaultState, action: reducerActionType) => {
@@ -23,6 +26,9 @@ const reducer = (state = defaultState, action: reducerActionType) => {
 
         case MovieAsctionEnum.pick:
             return {...state, item: state.item = action.payload}
+    
+        case ListFilterEnum.set:
+            return {...state, itemsList: state.itemsList = action.payload}
         
         default:
             return state

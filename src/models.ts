@@ -19,6 +19,7 @@ export interface IMoviesResponce {
 
 export interface IStoreItem {
     item: IItem
+    itemsList: any
 }
 
 export type btnManage = {

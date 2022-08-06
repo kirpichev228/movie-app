@@ -1,19 +1,22 @@
 import axios, { AxiosError } from "axios"
 import { useState, useEffect } from "react"
-import { IItem, IMoviesResponce } from "../../models"
+import { useDispatch } from "react-redux"
+import { IItem, IMoviesResponce, ListFilterEnum } from "../../models"
 
 export function useItems () {
     const [item, setItem] = useState<IItem[]>([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
 
+    const dispatch = useDispatch()
+
     async function fetchItems () {
         try {
         setError('')
         setLoading(true)
         const response = await axios.get<IMoviesResponce>('http://localhost:4000/movies?limit=20')
-        setItem(response.data.data)
-        console.log(response);
+        // setItem(response.data.data)
+        dispatch({type: ListFilterEnum.set, payload: response.data.data})
         
         setLoading(false)
         } catch (e: unknown) {
@@ -27,6 +30,6 @@ export function useItems () {
         fetchItems()
     }, [])
 
-    return {item, loading, error, setItem}
+    return { loading, error }
 }
 

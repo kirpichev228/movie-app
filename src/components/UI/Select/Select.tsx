@@ -7,11 +7,9 @@ const Select = ({options, defaultValue, value, onChange}: ISelectProps) => {
   return (
     <>
         
-            <span className=" opacity-75 mx-2">SORT BY</span>
+            <span className=" opacity-75 mx-2"></span>
             <select 
-                // name="" 
-                // id="" 
-                className=" bg-slate-600 rounded-md"
+                className=" bg-slate-600 rounded-md outline-none"
                 value={value}
                 onChange={event => onChange(event.target.value)}
             >

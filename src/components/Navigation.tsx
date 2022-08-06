@@ -4,20 +4,27 @@ import ModalAdd from './ModalAddSample'
 import SortButton from './UI/SortBtn/SortButton'
 import ManageBtn from './UI/ManageList/ManageBtn'
 import Select from './UI/Select/Select'
+import { useDispatch, useSelector } from 'react-redux'
+import { IItem, IStoreItem, ListFilterEnum } from '../models'
+import ItemFill from './ItemFill'
 
 
 const Navigation = () => {
 
-    const { item, setItem } = useItems()
     const [isOpen, setIsOpen] = useState(false)
     const [modalContent, setModalContent] = useState('')
     const [selectedSort, setSelectedSort] = useState('')
+    const itemsList = useSelector((state: IStoreItem) => state.itemsList)
+    const dispatch = useDispatch()
 
     const sortFilms = (sort: string) => {
         setSelectedSort(sort)
-        setItem( [...item].sort( (a, b) => a[sort].localeCompare(b[sort]) ) )
-        console.log(item);
-        
+        sort === 'title' || 'release_date' || 'vote_average'
+        ?
+            itemsList.sort( (a, b) => a[sort] > b[sort] ? 1 : -1 )
+        : 
+            itemsList.sort( (a, b) => a[sort] < b[sort] ? 1 : -1 )
+        dispatch({type: ListFilterEnum.set, payload: itemsList})       
     }
 
     return (
@@ -60,14 +67,19 @@ const Navigation = () => {
                     onChange={ sortFilms }
                     defaultValue='Sort by:'
                     options={[
-                        {value: 'title', name: 'by title'},
-                        {value: 'release_date', name: 'by year'}
+                        {value: 'title', name: 'By Title (A-Z)'},
+                        {value: ' title', name: 'By Title (Z-A)'},
+                        {value: 'release_date', name: 'By Year (early-later)'},
+                        {value: ' release_date', name: 'By Year (later-early)'},
+                        {value: 'vote_average', name: 'By Vote (low-high)'},
+                        {value: ' vote_average', name: 'By Vote (high-low)'},
                     ]}
                 />
             </nav>
             <span className='self-start ml-[4%] mt-5 text-xl'>
-                { item.length } movies found
+                { itemsList.length } movies found
             </span>
+            <ItemFill />
         </>
   )
 }
