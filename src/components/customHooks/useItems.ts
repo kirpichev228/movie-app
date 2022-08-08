@@ -17,7 +17,8 @@ export function useItems () {
         const response = await axios.get<IMoviesResponce>('http://localhost:4000/movies?limit=20')
         // setItem(response.data.data)
         dispatch({type: ListFilterEnum.set, payload: response.data.data})
-        
+        dispatch({type: ListFilterEnum.setCopy, payload: response.data.data})
+                
         setLoading(false)
         } catch (e: unknown) {
         const error = e as AxiosError

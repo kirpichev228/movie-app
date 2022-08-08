@@ -1,4 +1,5 @@
 import { createStore } from "redux"
+import { createSelector } from "reselect"
 import { MovieAsctionEnum, IStoreItem, reducerActionType, ListFilterEnum } from "../models"
 
 const defaultState: IStoreItem = {
@@ -16,10 +17,11 @@ const defaultState: IStoreItem = {
       vote_average: 8081,
       vote_count: 0,
     },
-    itemsList: [
-
-    ]
+    itemsList: [],
+    itemsListCopy: []
 }
+
+
 
 const reducer = (state = defaultState, action: reducerActionType) => {
     switch(action.type) {
@@ -30,6 +32,12 @@ const reducer = (state = defaultState, action: reducerActionType) => {
         case ListFilterEnum.set:
             return {...state, itemsList: state.itemsList = action.payload}
         
+        case ListFilterEnum.search:
+            return {...state, itemsList: action.payload}
+
+        case ListFilterEnum.setCopy:
+            return {...state, itemsListCopy: state.itemsListCopy = action.payload}
+            
         default:
             return state
     }

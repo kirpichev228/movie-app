@@ -19,7 +19,8 @@ export interface IMoviesResponce {
 
 export interface IStoreItem {
     item: IItem
-    itemsList: any
+    itemsList: any,
+    itemsListCopy: any
 }
 
 export type btnManage = {
@@ -54,6 +55,6 @@ export enum MovieAsctionEnum  {
 
 export enum ListFilterEnum {
     set = 'SET_LIST',
-    filterName = 'FILTER_NAME',
-    filterYear = 'FILTER_YEAR'
+    search = 'SEARCH',
+    setCopy = 'SET_COPY'
 }

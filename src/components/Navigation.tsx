@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useItems } from './customHooks/useItems'
+import { useSort } from './customHooks/useSort'
 import ModalAdd from './ModalAddSample'
 import SortButton from './UI/SortBtn/SortButton'
 import ManageBtn from './UI/ManageList/ManageBtn'
@@ -14,17 +15,13 @@ const Navigation = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [modalContent, setModalContent] = useState('')
     const [selectedSort, setSelectedSort] = useState('')
+    const { sortedPosts } = useSort()
+
     const itemsList = useSelector((state: IStoreItem) => state.itemsList)
-    const dispatch = useDispatch()
 
     const sortFilms = (sort: string) => {
         setSelectedSort(sort)
-        sort === 'title' || 'release_date' || 'vote_average'
-        ?
-            itemsList.sort( (a, b) => a[sort] > b[sort] ? 1 : -1 )
-        : 
-            itemsList.sort( (a, b) => a[sort] < b[sort] ? 1 : -1 )
-        dispatch({type: ListFilterEnum.set, payload: itemsList})       
+        sortedPosts( sort )      
     }
 
     return (
