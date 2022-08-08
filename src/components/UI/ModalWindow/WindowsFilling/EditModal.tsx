@@ -1,18 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import { IItem, IStoreItem } from '../../../../models'
 import CheckboxDropDown from '../inputs/CheckboxDropDown'
 import DateInput from '../inputs/DateInput'
 import TextInput from '../inputs/TextInput'
 
-
-
 const EditModal = () => {
 
     const movie: IItem = useSelector( (state: IStoreItem ) => state.item )
     console.log(movie);
-
-    // const [change, setChange] = useState(movie.title)
 
   return (
     <>
@@ -26,7 +22,6 @@ const EditModal = () => {
             heading='Movie title' 
             placeholder='Enter Movie Title'
             value={ movie.title }
-            // onChange = { e => setChange(e.target.value) }
         />
         <DateInput
             value={movie.release_date}

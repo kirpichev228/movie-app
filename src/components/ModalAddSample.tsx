@@ -1,4 +1,6 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { IStoreItem, MovieAsctionEnum } from '../models'
 import classes from './styles/ModalWindow.module.css'
 import AddModal from './UI/ModalWindow/WindowsFilling/AddModal'
 import DeleteModal from './UI/ModalWindow/WindowsFilling/DeleteModal'
@@ -17,9 +19,43 @@ const ModalAdd = ({visible, setVisible, content}:visibility) => {
         rootClasses.push(classes.active)
     }
 
+    const dispatch = useDispatch()
+
     const nullifyModal = () => {
         setVisible(false)
+    }
+
+    const currentMovie = useSelector((state: IStoreItem) => state.item )
+    const movieList = useSelector((state: IStoreItem) => state.itemsList )
+    const movieListCopy = useSelector((state: IStoreItem) => state.itemsListCopy )
+
+    const deleteMovie = () => {
+        let origMovie = movieList.indexOf(currentMovie)
+        dispatch({
+            type: MovieAsctionEnum.delete,
+            payload: origMovie + 1
+        })
+        movieList.splice(origMovie, 1)
+    }
+
+    const switchSubmit = () => {
+        switch (content) {
+            case 'delete':
+                deleteMovie()
+                setVisible(false)
+                break;
+
+            case 'edit':
+                setVisible(false)
+                break
+
+            case 'add':
+                setVisible(false)
+                break
         
+            default:
+                break;
+        }
     }
 
   return (
@@ -46,7 +82,10 @@ const ModalAdd = ({visible, setVisible, content}:visibility) => {
                 >
                     CANCEL
                 </button>
-                <button className={ classes.submitButton }>
+                <button
+                    className={ classes.submitButton }
+                    onClick = {switchSubmit}
+                >
                     SUBMIT
                 </button>
             </div>

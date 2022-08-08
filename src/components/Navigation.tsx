@@ -16,7 +16,7 @@ const Navigation = () => {
     const [selectedSort, setSelectedSort] = useState('')
     const { sortedPosts } = useSort()
 
-    const itemsList = useSelector((state: IStoreItem) => state.itemsList)
+    const itemsListCopy = useSelector((state: IStoreItem) => state.itemsListCopy)
 
     const sortFilms = (sort: keyof IItem) => {
         setSelectedSort(sort)
@@ -73,7 +73,7 @@ const Navigation = () => {
                 />
             </nav>
             <span className='self-start ml-[4%] mt-5 text-xl'>
-                { itemsList.length } movies found
+                { itemsListCopy.length } movies found
             </span>
             <ItemFill />
         </>

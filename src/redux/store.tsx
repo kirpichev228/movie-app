@@ -27,6 +27,9 @@ const reducer = (state = defaultState, action: reducerActionType) => {
 
         case MovieAsctionEnum.pick:
             return {...state, item: state.item = action.payload}
+
+        case MovieAsctionEnum.delete:
+            return {...state, item: state.item = state.itemsList[action.payload]}
     
         case ListFilterEnum.set:
             return {...state, itemsList: state.itemsList = action.payload}
