@@ -1,5 +1,4 @@
 import { createStore } from "redux"
-import { createSelector } from "reselect"
 import { MovieAsctionEnum, IStoreItem, reducerActionType, ListFilterEnum } from "../models"
 
 const defaultState: IStoreItem = {

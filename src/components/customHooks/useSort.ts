@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { IStoreItem, ListFilterEnum } from "../../models"
+import { IItem, IStoreItem, ListFilterEnum } from "../../models"
 
 
 export const useSort = () => {
@@ -8,8 +8,8 @@ export const useSort = () => {
 
     const itemsListCopy = useSelector((state: IStoreItem) => state.itemsListCopy)
 
-    const sortedPosts = (selectedSort: string) => {
-        let cock = itemsListCopy.sort( (a, b) => a[selectedSort] > b[selectedSort] ? 1 : -1 )
+    const sortedPosts = (selectedSort: keyof IItem) => {
+        let cock = itemsListCopy.sort( (a: IItem, b: IItem) => a[selectedSort] > b[selectedSort] ? 1 : -1 )
         dispatch({
             type: ListFilterEnum.set,
             payload: cock

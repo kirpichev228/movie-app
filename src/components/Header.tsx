@@ -1,20 +1,11 @@
-import React, { useMemo, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { IStoreItem, ListFilterEnum } from '../models'
+import React, { useState } from 'react'
 import { useSearch } from './customHooks/useSearch'
 
 const Header = () => {
 
   const [searchQuery, setSearchQuery] = useState('')
-  const dispatch = useDispatch()
-  const itemsList = useSelector((state: IStoreItem) => state.itemsList)
-  const itemsListCopy = useSelector((state: IStoreItem) => state.itemsListCopy)
 
   const {Test} = useSearch(searchQuery)
-
-//   const searched = useMemo( () => {      
-//     return itemsListCopy.filter( post => post.title.toLowerCase().includes(searchQuery.toLowerCase().trim()) )
-// }, [searchQuery, itemsListCopy] )
 
   return (
     <header className='h-24 text-white flex justify-between items-center p-5 w-full'>

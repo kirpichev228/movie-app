@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import { useItems } from './customHooks/useItems'
 import { useSort } from './customHooks/useSort'
 import ModalAdd from './ModalAddSample'
 import SortButton from './UI/SortBtn/SortButton'
 import ManageBtn from './UI/ManageList/ManageBtn'
 import Select from './UI/Select/Select'
-import { useDispatch, useSelector } from 'react-redux'
-import { IItem, IStoreItem, ListFilterEnum } from '../models'
+import { useSelector } from 'react-redux'
+import { IItem, IStoreItem } from '../models'
 import ItemFill from './ItemFill'
 
 
@@ -19,7 +18,7 @@ const Navigation = () => {
 
     const itemsList = useSelector((state: IStoreItem) => state.itemsList)
 
-    const sortFilms = (sort: string) => {
+    const sortFilms = (sort: keyof IItem) => {
         setSelectedSort(sort)
         sortedPosts( sort )      
     }
