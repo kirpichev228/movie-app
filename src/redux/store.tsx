@@ -1,4 +1,6 @@
-import { createStore } from "redux"
+import { stat } from "fs/promises";
+import { applyMiddleware, createStore } from "redux"
+import thunk from 'redux-thunk';
 import { MovieAsctionEnum, IStoreItem, reducerActionType, ListFilterEnum } from "../models"
 
 const defaultState: IStoreItem = {
@@ -30,6 +32,9 @@ const reducer = (state = defaultState, action: reducerActionType) => {
 
         case MovieAsctionEnum.delete:
             return {...state, item: state.item = state.itemsList[action.payload]}
+            
+        case MovieAsctionEnum.edit:
+            return {...state, item: state.item = action.payload}
     
         case ListFilterEnum.set:
             return {...state, itemsList: state.itemsList = action.payload}
@@ -40,9 +45,12 @@ const reducer = (state = defaultState, action: reducerActionType) => {
         case ListFilterEnum.setCopy:
             return {...state, itemsListCopy: state.itemsListCopy = action.payload}
             
+        case ListFilterEnum.edit:
+            return {...state, itemsList: state.itemsList[action.payload] = state.item}
+
         default:
             return state
     }
 }
 
-export const store = createStore(reducer)
+export const store = createStore(reducer, applyMiddleware(thunk))

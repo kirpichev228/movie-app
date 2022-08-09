@@ -56,5 +56,6 @@ export enum MovieAsctionEnum  {
 export enum ListFilterEnum {
     set = 'SET_LIST',
     search = 'SEARCH',
-    setCopy = 'SET_COPY'
+    setCopy = 'SET_COPY',
+    edit = 'EDIT_LIST'
 }

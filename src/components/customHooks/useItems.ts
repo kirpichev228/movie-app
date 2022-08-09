@@ -17,6 +17,8 @@ export function useItems () {
             dispatch({type: ListFilterEnum.set, payload: response.data.data})
             dispatch({type: ListFilterEnum.setCopy, payload: response.data.data})  
             setLoading(false)
+            console.log(response);
+            
         } catch (e: unknown) {
             const error = e as AxiosError
             setLoading(false)
@@ -30,4 +32,5 @@ export function useItems () {
 
     return { loading, error }
 }
+
 

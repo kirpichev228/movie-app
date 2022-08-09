@@ -30,13 +30,19 @@
     align-items: flex-start;
 }
 
+.modalForm {
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+}
+
 input[type='date'] {
     ::-webkit-calendar-picker-indicator {
         background-color: #db4079;
     }
 }
 
-.cancelButton,
+
 .submitButton {
     width: 130px;
     height: 40px;
@@ -46,6 +52,22 @@ input[type='date'] {
     font-size: 19px;
     transition-duration: 0.3s;
     color: #db4079;
+    position: relative;
+    top: 40px;
+}
+
+.cancelButton {
+    width: 130px;
+    height: 40px;
+    /* margin-left: 15px; */
+    margin-right: 15px;
+    border: #db4079 2px solid;
+    border-radius: 7px;
+    font-size: 19px;
+    transition-duration: 0.3s;
+    color: #db4079;
+    align-self: flex-start;
+
 }
 
 .cancelButton:hover,

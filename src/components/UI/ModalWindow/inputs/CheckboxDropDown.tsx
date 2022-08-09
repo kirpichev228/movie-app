@@ -3,6 +3,8 @@ import Multiselect from 'multiselect-react-dropdown'
 
 type CHBDDType = {
     value: string[]
+    name: string
+    onChange(): any
 }
 
 const CheckboxDropDown = (props:CHBDDType) => {
@@ -30,12 +32,15 @@ const CheckboxDropDown = (props:CHBDDType) => {
     const [options] = useState(data)
 
     return (
-        <label className='text-xl font-light w-full text-[#db4079] mt-4'>
+        <label className='text-lg font-light w-full text-[#db4079] mt-3'>
             GENRE
             <Multiselect 
+                name={props.name}
+                onChange={props.onChange}
                 selectedValues={props.value.map((item) => {
                     return {genre: item}
                 } )}
+                
                 options = { options } 
                 displayValue = 'genre' 
                 showCheckbox = { true }
@@ -48,8 +53,8 @@ const CheckboxDropDown = (props:CHBDDType) => {
                         searchBox: {
                             border: 'none',
                             background: '#374151',
-                            'font-size': '16px',
-                            'line-height': '24px',
+                            'font-size': '14px',
+                            'line-height': '20px',
                         },
                         multiselectContainer: {
                             color: '#db4079'
@@ -57,14 +62,16 @@ const CheckboxDropDown = (props:CHBDDType) => {
                         chips: {
                             background: '#db4079',
                             color: 'white',
-                            'border-radius': '5px'
+                            'border-radius': '5px',
+                            height: '25px',
+                            
                         },
                         optionContainer: {
                             background: '#374151',
                             border: 'none'
                         },
                         option: {
-                            'font-size': '16px' 
+                            'font-size': '14px' 
                         },
                     }
                 }

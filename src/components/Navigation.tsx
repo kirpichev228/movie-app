@@ -44,7 +44,7 @@ const Navigation = () => {
                     <ManageBtn onClick={ ()=>{
                         setIsOpen(true)
                         setModalContent('edit')
-                        setIsOpen(true)
+                        // setIsOpen(true)
                     } }
                     >
                         Edit film
