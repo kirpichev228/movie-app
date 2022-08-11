@@ -54,6 +54,7 @@ const EditModal = () => {
     return (
     <>
         <form onSubmit={formik.handleSubmit} className={classes.modalForm}>
+            {formik.values.id}
             <TextInput 
                 name='title'
                 heading='Movie title' 

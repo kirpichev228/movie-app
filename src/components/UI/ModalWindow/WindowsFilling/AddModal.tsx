@@ -50,6 +50,8 @@ const AddModal = () => {
         onSubmit(values) {            
             (async function () {
                 try{
+                    const response = await axios.post('http://localhost:4000/movies', values)
+                    formik.values.id = response.data.id
                     dispatch({
                         type: MovieAsctionEnum.edit,
                         payload: values
@@ -59,7 +61,8 @@ const AddModal = () => {
                         payload: values
                     })
                     // let origMovie = movieList.indexOf(currentMovie)
-                    await axios.post('http://localhost:4000/movies', values)
+                    
+                    
                     setSucсess(1)
                 }
                 catch (e: any) {

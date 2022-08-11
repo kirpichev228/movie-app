@@ -10,7 +10,7 @@ export interface productProps {
 }
 
 const Item = ({ item, ...props }: productProps, ) => {
-
+    const itemGenre = item.genres.join(', ')
     function imgDefault ({ currentTarget }:any) {
         currentTarget.onerror = null
         currentTarget.src = 'https://i.kym-cdn.com/photos/images/facebook/000/483/553/f73.png'
@@ -37,7 +37,12 @@ const Item = ({ item, ...props }: productProps, ) => {
                 </span>
             </div>
             <span className={classes.movieGenres}>
-                { item.genres.join(', ') }
+                { itemGenre.length > 40 
+                    ?
+                    itemGenre.slice(0, 40) + '...'
+                    : 
+                    itemGenre
+                }
             </span>
         </div>
     )
