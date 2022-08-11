@@ -1,7 +1,7 @@
 export interface IItem {
     budget: number,
     genres: string[],
-    id: number,
+    id?: number,
     overview: string
     poster_path: string
     release_date: string
@@ -41,6 +41,7 @@ export type optionsType = {
 }
 
 export type reducerActionType = {
+    values: any
     type: string
     payload: IItem
 }
@@ -57,5 +58,7 @@ export enum ListFilterEnum {
     set = 'SET_LIST',
     search = 'SEARCH',
     setCopy = 'SET_COPY',
-    edit = 'EDIT_LIST'
+    edit = 'EDIT_LIST',
+    add = 'ADD_MOVIES',
+    delete = 'Delete_movies'
 }

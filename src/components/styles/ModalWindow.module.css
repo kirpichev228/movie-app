@@ -48,10 +48,11 @@ input[type='date'] {
     height: 40px;
     margin-left: 15px;
     border: #db4079 2px solid;
+    background-color: #db4079;
     border-radius: 7px;
     font-size: 19px;
     transition-duration: 0.3s;
-    color: #db4079;
+    color: white;
     position: relative;
     top: 40px;
 }
@@ -70,9 +71,14 @@ input[type='date'] {
 
 }
 
-.cancelButton:hover,
-.submitButton:hover {
+.cancelButton:hover {
     background-color: #db4079;
     color: white;
+    transition-duration: 0.3s;
+}
+
+.submitButton:hover {
+    background-color: ivory;
+    color: #db4079;
     transition-duration: 0.3s;
 }

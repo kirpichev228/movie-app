@@ -46,7 +46,13 @@ const reducer = (state = defaultState, action: reducerActionType) => {
             return {...state, itemsListCopy: state.itemsListCopy = action.payload}
             
         case ListFilterEnum.edit:
-            return {...state, itemsList: state.itemsList[action.payload] = state.item}
+            return {...state, itemsList: state.itemsListCopy[action.payload] = action.value}
+        
+        case ListFilterEnum.add:
+            return {...state, itemsList: state.itemsListCopy.unshift(action.payload) }
+
+        case ListFilterEnum.delete: 
+            return {...state, itemsList: state.itemsListCopy.splice(action.payload, 1)}
 
         default:
             return state

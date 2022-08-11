@@ -22,7 +22,12 @@
 
 .infoBtn:hover {
     transition-duration: 0.3s;
-    background-color: white;
-    color: black;
+    background-color: #db4079;
     cursor: pointer;
+}
+
+.infoBtn:active {
+    background-color: aliceblue;
+    color: black;
+    transition-duration: 0.3s;
 }

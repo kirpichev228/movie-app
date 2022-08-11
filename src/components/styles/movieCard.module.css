@@ -1,0 +1,32 @@
+
+
+.movieContainer {
+    width: 300px;
+    background-color: #1b1a1c;
+    border: 2px solid transparent;
+    transition-duration: 0.3s;
+}
+
+.movieContainer:hover {
+    cursor: pointer;
+    border: 2px solid #db4079;
+    transition-duration: 0.3s;
+}
+
+.movieInfo {
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.movieGenres {
+    transition-duration: 0.3s;
+    opacity: 0.8;
+    padding: 8px;
+    font-size: 0.875rem;
+    /* /* line-height: 1.25rem; */
+    height: 100%;
+}

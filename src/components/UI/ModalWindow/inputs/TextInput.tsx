@@ -5,6 +5,8 @@ type inputChild = {
     heading: string
     placeholder: string
     value: string | number | string[]
+    type: string
+    step?: number
     onChange(): HTMLInputElement
 }
 
@@ -20,7 +22,8 @@ const TextInput = (props:inputChild) => {
             name={ props.name }
             value={ props.value }
             onChange={props.onChange}
-            type="text" 
+            type={ props.type } 
+            step={props.step}
             placeholder = { props.placeholder } 
             className=' placeholder-gray-500 w-full h-6 font-normal bg-gray-700 text-white rounded px-2 text-sm outline-none'
         />

@@ -13,7 +13,7 @@ export function useItems () {
         try {
             setError('')
             setLoading(true)
-            const response = await axios.get<IMoviesResponce>('http://localhost:4000/movies?limit=20')
+            const response = await axios.get<IMoviesResponce>('http://localhost:4000/movies?limit=24')
             dispatch({type: ListFilterEnum.set, payload: response.data.data})
             dispatch({type: ListFilterEnum.setCopy, payload: response.data.data})  
             setLoading(false)

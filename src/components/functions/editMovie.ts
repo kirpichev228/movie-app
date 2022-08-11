@@ -1,7 +1,7 @@
 import axios from "axios"
 import { Dispatch } from "react"
 import { AnyAction } from "redux"
-import { IItem, ListFilterEnum, MovieAsctionEnum } from "../../models"
+import { IItem, ListFilterEnum,} from "../../models"
 
 interface IEditMovie {
     dispatch: Dispatch<AnyAction>
@@ -13,18 +13,18 @@ interface IEditMovie {
 export async function editMovie ({values, dispatch, movieList, currentMovie}: IEditMovie) {
     
     try{
-        dispatch({
-            type: MovieAsctionEnum.edit,
-            payload: values
-        })
+
         let origMovie = movieList.indexOf(currentMovie)
-        await axios.put('http://localhost:4000/movies', values)
         dispatch({
             type: ListFilterEnum.edit,
-            payload: origMovie
+            payload: origMovie,
+            value: values
         })
+        await axios.put('http://localhost:4000/movies', values)
+        
     }
     catch (e: unknown) {
-
+        console.log(e.response);
+        
     }
 }

@@ -45,23 +45,20 @@ const EditModal = () => {
             vote_count: Yup.number().min(1).max(10000, 'Max votes - 10000').required('Required') 
         }),
         onSubmit(values) {
+            console.log(values)
+
             editMovie({values, dispatch, movieList, currentMovie})
         },
     })
 
     return (
     <>
-        <h3 className='text-2xl font-light w-full text-[#db4079] mt-2'>
-            Movie ID
-        </h3>
-        <span className='font-bold text-lg'>
-            {movie.id}
-        </span>
         <form onSubmit={formik.handleSubmit} className={classes.modalForm}>
             <TextInput 
                 name='title'
                 heading='Movie title' 
                 placeholder='Enter Movie Title'
+                type='text'
                 value={ formik.values.title }
                 onChange={ formik.handleChange }
             />
@@ -70,12 +67,14 @@ const EditModal = () => {
                 name='tagline'
                 heading='tagline' 
                 placeholder='Tagline'
+                type='text'
                 value={ formik.values.tagline }
                 onChange={ formik.handleChange }
             />
             { formik.errors.tagline ? <p className=' text-xs text-red-700'>Must be 50 characters or less</p> : null }
             <DateInput
                 name='release_date'
+                type='text'
                 value={ formik.values.release_date }
                 onChange={ formik.handleChange }
             />
@@ -84,6 +83,7 @@ const EditModal = () => {
                 name='poster_path'
                 heading='movie url' 
                 placeholder='Movie Image URL'
+                type='text'
                 value={ formik.values.poster_path }
                 onChange={ formik.handleChange }
             />
@@ -98,6 +98,7 @@ const EditModal = () => {
                 name='overview'
                 heading='overview' 
                 placeholder='Overview here'
+                type='text'
                 value={ formik.values.overview }
                 onChange={ formik.handleChange }
             />
@@ -108,6 +109,8 @@ const EditModal = () => {
                         name='runtime'
                         heading='runtime' 
                         placeholder='Runtime here(in mins.)'
+                        type='number'
+                        step={1}
                         value={ formik.values.runtime }
                         onChange={ formik.handleChange }
                     />
@@ -117,7 +120,9 @@ const EditModal = () => {
                    <TextInput 
                         name='budget'
                         heading='Budget' 
-                        placeholder='Budhet'
+                        placeholder='Budget'
+                        type='number'
+                        step={100000}
                         value={ formik.values.budget }
                         onChange={ formik.handleChange }
                     />
@@ -128,6 +133,8 @@ const EditModal = () => {
                         name='revenue'
                         heading='Revenue' 
                         placeholder='Revenue'
+                        type='number'
+                        step={100000}
                         value={ formik.values.revenue }
                         onChange={ formik.handleChange }
                     />
@@ -141,6 +148,8 @@ const EditModal = () => {
                         name='vote_average'
                         heading='Vote Average' 
                         placeholder='Vote Average'
+                        type='number'
+                        step={0.1}
                         value={ formik.values.vote_average }
                         onChange={ formik.handleChange }
                     />
@@ -151,6 +160,8 @@ const EditModal = () => {
                         name='vote_count'
                         heading='Votes Count' 
                         placeholder='Votes Count'
+                        type='number'
+                        step={10}
                         value={ formik.values.vote_count }
                         onChange={ formik.handleChange }
                     />

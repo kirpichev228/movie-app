@@ -30,30 +30,31 @@ const ModalAdd = ({visible, setVisible, content}:visibility) => {
     const movieList = useSelector((state: IStoreItem) => state.itemsList )
     const movieListCopy = useSelector((state: IStoreItem) => state.itemsListCopy )
 
-    const switchSubmit = () => {
-        switch (content) {
-            case 'delete':
-                deleteMovie(
-                    {dispatch, 
-                    currentMovie, 
-                    currentMovieId, 
-                    movieList}
-                )
-                setVisible(false)
-                break;
-                        // МОЖЕТ БЫТЬ СЮДА МОЖНО БУДЕТ ПРОКИНУТЬ ФУНКЦИЮ ЭДИТА БЕЗ ЕБАТРОНИКИ С КНОПУКАМИ
-            case 'edit':
-                setVisible(false)
-                break
+    // const switchSubmit = () => {
+    //     switch (content) {
+    //         case 'delete':
+    //             deleteMovie(
+    //                 {dispatch, 
+    //                 currentMovie, 
+    //                 currentMovieId, 
+    //                 movieList}
+    //             )
+    //             setVisible(false)
+    //             break;
+    //                     // МОЖЕТ БЫТЬ СЮДА МОЖНО БУДЕТ ПРОКИНУТЬ ФУНКЦИЮ ЭДИТА БЕЗ ЕБАТРОНИКИ С КНОПУКАМИ
+    //                     // ПОПРАВИТЬ ЗАГРУЗКУ КАРТИНКИ
+    //         case 'edit':
+    //             setVisible(false)
+    //             break
 
-            case 'add':
-                setVisible(false)
-                break
+    //         case 'add':
+    //             setVisible(false)
+    //             break
         
-            default:
-                break;
-        }
-    }
+    //         default:
+    //             break;
+    //     }
+    // }
 
   return (
     <div className={ rootClasses.join(' ') } onClick={ nullifyModal }>
