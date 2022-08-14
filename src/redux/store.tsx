@@ -1,7 +1,6 @@
-import { stat } from "fs/promises";
 import { applyMiddleware, createStore } from "redux"
 import thunk from 'redux-thunk';
-import { MovieAsctionEnum, IStoreItem, reducerActionType, ListFilterEnum } from "../models"
+import { MovieAsctionEnum, IStoreItem, reducerActionType, ListFilterEnum, ModalEnum, WatchListEnum } from "../models"
 
 const defaultState: IStoreItem = {
     item: {
@@ -19,9 +18,12 @@ const defaultState: IStoreItem = {
       vote_count: 0,
     },
     itemsList: [],
-    itemsListCopy: []
+    itemsListCopy: [],
+    modalOpen: false,
+    content: '',
+    deleted: false,
+    watchList: [ ],
 }
-
 
 
 const reducer = (state = defaultState, action: reducerActionType) => {
@@ -53,6 +55,24 @@ const reducer = (state = defaultState, action: reducerActionType) => {
 
         case ListFilterEnum.delete: 
             return {...state, itemsList: state.itemsListCopy.splice(action.payload, 1)}
+        
+        case ModalEnum.open:
+            return {...state, modalOpen: action.payload}
+
+        case ModalEnum.setContent:
+            return {...state, content: action.payload}
+
+        case ModalEnum.deleteCheck:
+            return {...state, deleted: action.payload}
+
+        case WatchListEnum.push:
+            return {...state, watchList: state.watchList.concat(action.movie)}
+        
+        case WatchListEnum.delete:
+            return {...state, watchList: state.watchList = action.movie }
+
+        case WatchListEnum.clear:
+            return {...state, watchList: state.watchList = []}
 
         default:
             return state

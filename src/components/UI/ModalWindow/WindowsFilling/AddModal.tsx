@@ -24,14 +24,14 @@ const AddModal = () => {
             title: '',
             poster_path: '',
             overview: '',
-            runtime: 1,
+            runtime: 0,
             release_date: '',
             genres: ['action'],
             tagline: '',
-            revenue: 1,
-            budget: 1,
-            vote_average: 1,
-            vote_count: 1
+            revenue: 0,
+            budget: 0,
+            vote_average: 0,
+            vote_count: 0
         },
         validationSchema: Yup.object({
             // id: Yup.number().max(999999, '999999 or less').required('Required') ,
@@ -47,7 +47,7 @@ const AddModal = () => {
             vote_average: Yup.number().min(1).max(10, 'Max score - 10').required('Required') ,
             vote_count: Yup.number().min(1).max(10000, 'Max votes - 10000').required('Required') 
         }),
-        onSubmit(values) {            
+        onSubmit(values: IItem) {            
             (async function () {
                 try{
                     const response = await axios.post('http://localhost:4000/movies', values)

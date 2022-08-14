@@ -1,11 +1,11 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { IStoreItem } from '../models'
+import { IStoreItem, ModalEnum } from '../models'
 import classes from './styles/ModalWindow.module.css'
 import AddModal from './UI/ModalWindow/WindowsFilling/AddModal'
 import DeleteModal from './UI/ModalWindow/WindowsFilling/DeleteModal'
 import EditModal from './UI/ModalWindow/WindowsFilling/EditModal'
-import { deleteMovie } from './functions/deleteMovie'
+// import { deleteMovie } from './functions/deleteMovie'
 
 type visibility = {
     visible: boolean
@@ -19,42 +19,14 @@ const ModalAdd = ({visible, setVisible, content}:visibility) => {
     if (visible) {
         rootClasses.push(classes.active)
     }
+    const dispatch = useDispatch()
+    const open = useSelector((state: IStoreItem) => state.modalOpen)
+
 
     const nullifyModal = () => {
-        setVisible(false)
+        dispatch({type:ModalEnum.open, payload: false})
+        setVisible(open)
     }
-
-    const dispatch = useDispatch()
-    const currentMovie = useSelector((state: IStoreItem) => state.item )
-    const currentMovieId = useSelector((state: IStoreItem) => state.item.id )
-    const movieList = useSelector((state: IStoreItem) => state.itemsList )
-    const movieListCopy = useSelector((state: IStoreItem) => state.itemsListCopy )
-
-    // const switchSubmit = () => {
-    //     switch (content) {
-    //         case 'delete':
-    //             deleteMovie(
-    //                 {dispatch, 
-    //                 currentMovie, 
-    //                 currentMovieId, 
-    //                 movieList}
-    //             )
-    //             setVisible(false)
-    //             break;
-    //                     // МОЖЕТ БЫТЬ СЮДА МОЖНО БУДЕТ ПРОКИНУТЬ ФУНКЦИЮ ЭДИТА БЕЗ ЕБАТРОНИКИ С КНОПУКАМИ
-    //                     // ПОПРАВИТЬ ЗАГРУЗКУ КАРТИНКИ
-    //         case 'edit':
-    //             setVisible(false)
-    //             break
-
-    //         case 'add':
-    //             setVisible(false)
-    //             break
-        
-    //         default:
-    //             break;
-    //     }
-    // }
 
   return (
     <div className={ rootClasses.join(' ') } onClick={ nullifyModal }>
@@ -64,8 +36,8 @@ const ModalAdd = ({visible, setVisible, content}:visibility) => {
                 { content === 'edit' && 'EDIT MOVIE' }
                 { content === 'delete' && 'DELETE MOVIE' }
                 <button 
-                    className=" font-semibold text-5xl pb-3 hover:text-[#db4079] transition-all"
-                    onClick={ ()=> setVisible(false) }
+                    className=" font-semibold text-5xl pb-3 hover:text-[#876afe] transition-all"
+                    onClick={ nullifyModal }
                 >
                     &#215;
                 </button>
@@ -74,12 +46,12 @@ const ModalAdd = ({visible, setVisible, content}:visibility) => {
             { content === 'edit' && <EditModal/> }
             { content === 'delete' && <DeleteModal/> }
             <div className="w-full flex items-center justify-end">
-                <button
+                {/* <button
                     className={ classes.cancelButton }
                     onClick={ nullifyModal }
                 >
                     CANCEL
-                </button>
+                </button> */}
                 {/* <button
                     type='submit'
                     className={ classes.submitButton }

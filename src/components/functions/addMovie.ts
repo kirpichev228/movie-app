@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios, { AxiosError } from "axios"
 import { Dispatch } from "react"
 import { AnyAction } from "redux"
 import { IItem, ListFilterEnum, MovieAsctionEnum } from "../../models"
@@ -24,7 +24,8 @@ export async function addMovie ({values, dispatch, movieList, currentMovie}: IEd
         // let origMovie = movieList.indexOf(currentMovie)
         await axios.post('http://localhost:4000/movies', values)
     }
-    catch (e: any) {
-    console.log(e.response);
+    catch (e: unknown) {
+        const error = e as AxiosError
+    console.log(error.response);
     }
 }

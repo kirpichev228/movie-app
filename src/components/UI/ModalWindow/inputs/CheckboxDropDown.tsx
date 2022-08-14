@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
+import React, {ChangeEventHandler, useState} from 'react'
 import Multiselect from 'multiselect-react-dropdown'
 
 type CHBDDType = {
     value: string[]
     name: string
-    onChange(): any
+    onChange: ChangeEventHandler<HTMLInputElement> 
 }
 
 const CheckboxDropDown = (props:CHBDDType) => {
@@ -32,7 +32,7 @@ const CheckboxDropDown = (props:CHBDDType) => {
     const [options] = useState(data)
 
     return (
-        <label className='text-lg font-light w-full text-[#db4079] mt-3'>
+        <label className='text-lg font-light w-full text-[#876afe] mt-3'>
             GENRE
             <Multiselect 
                 name={props.name}
@@ -57,10 +57,10 @@ const CheckboxDropDown = (props:CHBDDType) => {
                             'line-height': '20px',
                         },
                         multiselectContainer: {
-                            color: '#db4079'
+                            color: '#876afe'
                         },
                         chips: {
-                            background: '#db4079',
+                            background: '#876afe',
                             color: 'white',
                             'border-radius': '5px',
                             height: '25px',

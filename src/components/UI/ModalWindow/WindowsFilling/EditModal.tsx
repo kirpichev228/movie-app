@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { IItem, IStoreItem } from '../../../../models'
+import { IEditMovie, IStoreItem, ListFilterEnum, ModalEnum } from '../../../../models'
 import CheckboxDropDown from '../inputs/CheckboxDropDown'
 import DateInput from '../inputs/DateInput'
 import TextInput from '../inputs/TextInput'
@@ -8,28 +8,47 @@ import classes from '../../../styles/ModalWindow.module.css'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { editMovie } from '../../../functions/editMovie'
+import axios, { AxiosError } from 'axios'
 
 const EditModal = () => {
 
-    const movie: IItem = useSelector( (state: IStoreItem ) => state.item )
     const currentMovie = useSelector((state: IStoreItem) => state.item )
     const movieList = useSelector((state: IStoreItem) => state.itemsListCopy )
     const dispatch = useDispatch()
+    const [sucсess, setSucсess] = useState(0)
+
+    async function editMovie ({values, dispatch, movieList, currentMovie}: IEditMovie) {
+        try{
+            let origMovie = movieList.indexOf(currentMovie)
+            dispatch({
+                type: ListFilterEnum.edit,
+                payload: origMovie,
+                value: values
+            })
+            await axios.put('http://localhost:4000/movies', values)
+            setSucсess(1)
+        }
+        catch (e: unknown) {
+            const error = e as AxiosError
+            console.log(error.response);
+            setSucсess(2)
+        }
+    }
 
     const formik = useFormik({
         initialValues: {
-            id: movie.id,
-            title: movie.title,
-            poster_path: movie.poster_path,
-            overview: movie.overview,
-            runtime: movie.runtime,
-            release_date: movie.release_date,
-            genres: movie.genres,
-            tagline: movie.tagline,
-            revenue: movie.revenue,
-            budget: movie.budget,
-            vote_average: movie.vote_average,
-            vote_count: movie.vote_count
+            id: currentMovie.id,
+            title: currentMovie.title,
+            poster_path: currentMovie.poster_path,
+            overview: currentMovie.overview,
+            runtime: currentMovie.runtime,
+            release_date: currentMovie.release_date,
+            genres: currentMovie.genres,
+            tagline: currentMovie.tagline,
+            revenue: currentMovie.revenue,
+            budget: currentMovie.budget,
+            vote_average: currentMovie.vote_average,
+            vote_count: currentMovie.vote_count
         },
         validationSchema: Yup.object({
             title: Yup.string().min(1).max(50, 'Must be 50 characters or less').required('Required') ,
@@ -45,8 +64,6 @@ const EditModal = () => {
             vote_count: Yup.number().min(1).max(10000, 'Max votes - 10000').required('Required') 
         }),
         onSubmit(values) {
-            console.log(values)
-
             editMovie({values, dispatch, movieList, currentMovie})
         },
     })
@@ -75,7 +92,7 @@ const EditModal = () => {
             { formik.errors.tagline ? <p className=' text-xs text-red-700'>Must be 50 characters or less</p> : null }
             <DateInput
                 name='release_date'
-                type='text'
+                // type='text'
                 value={ formik.values.release_date }
                 onChange={ formik.handleChange }
             />
@@ -176,6 +193,8 @@ const EditModal = () => {
             >
                 SUBMIT
             </button>
+            {sucсess===1 && <p className=' text-green-600 font-extralight mt-2 text-sm text-center w-full'>Success!</p>}
+            {sucсess===2 && <p className=' text-red-600 font-extralight mt-2 text-sm text-center w-full'>Something went wrong!</p>}
         </form>
     </>
   )

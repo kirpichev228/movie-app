@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ChangeEventHandler, EventHandler, useState } from 'react'
 
 type inputChild = {
     name: string
@@ -7,7 +7,7 @@ type inputChild = {
     value: string | number | string[]
     type: string
     step?: number
-    onChange(): HTMLInputElement
+    onChange: ChangeEventHandler<HTMLInputElement> 
 }
 
 const TextInput = (props:inputChild) => {
@@ -16,7 +16,7 @@ const TextInput = (props:inputChild) => {
 
 
   return (
-    <label className='text-lg font-light w-full text-[#db4079] mt-3'>
+    <label className='text-lg font-light w-full text-[#876afe] mt-3'>
         { props.heading.toUpperCase() }
         <input 
             name={ props.name }

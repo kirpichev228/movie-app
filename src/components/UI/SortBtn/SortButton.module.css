@@ -1,22 +1,22 @@
 .sortBtn,
 .sortBtnPicked {
-    background: transparent;
-    border: transparent;
-    transition-duration: 0.3s;
-    color: #db4079;
+  background: transparent;
+  border: transparent;
+  transition-duration: 0.3s;
+  color: #876afe;
 }
 
 .sortBtn {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .sortBtnPicked {
-    opacity: 1;
-    transition-duration: 0.3s;
+  opacity: 1;
+  transition-duration: 0.3s;
 }
 
 .sortBtn:hover {
-    opacity: 1;
-    transition-duration: 0.3s;
-    cursor: pointer;
+  opacity: 1;
+  transition-duration: 0.3s;
+  cursor: pointer;
 }

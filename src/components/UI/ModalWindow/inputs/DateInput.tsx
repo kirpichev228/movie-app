@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
+import React, { ChangeEventHandler, useState } from 'react'
 
 type datePropsType = {
   value: string
   name: string,
-  onChange(): unknown
+  onChange: ChangeEventHandler<HTMLInputElement> 
 }
 
 const DateInput = (props:datePropsType) => {
 
   return (
-    <label className='text-lg font-light w-full text-[#db4079] mt-3'>
+    <label className='text-lg font-light w-full text-[#876afe] mt-3'>
         REALESE DATE
         <input 
             name={props.name}

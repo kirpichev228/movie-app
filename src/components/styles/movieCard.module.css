@@ -1,32 +1,43 @@
-
-
 .movieContainer {
-    width: 300px;
-    background-color: #1b1a1c;
-    border: 2px solid transparent;
-    transition-duration: 0.3s;
+  width: 300px;
+  background-color: #1b1a1c;
+  border: 2px solid #37363b;
+  transition-duration: 0.3s;
+  border-radius: 17px;
 }
 
 .movieContainer:hover {
-    cursor: pointer;
-    border: 2px solid #db4079;
-    transition-duration: 0.3s;
+  cursor: pointer;
+  border: 2px solid #876afe;
+  transition-duration: 0.3s;
+  border-radius: 0;
+}
+
+.movieContainer:hover > .itemImg {
+  border-radius: 0;
+  transition-duration: 0.3s;
 }
 
 .movieInfo {
-    padding: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-
+.itemImg {
+  width: 300px;
+  height: 450px;
+  border-top-left-radius: 17px;
+  border-top-right-radius: 17px;
+  transition-duration: 0.3s;
+}
 
 .movieGenres {
-    transition-duration: 0.3s;
-    opacity: 0.8;
-    padding: 8px;
-    font-size: 0.875rem;
-    /* /* line-height: 1.25rem; */
-    height: 100%;
+  transition-duration: 0.3s;
+  opacity: 0.8;
+  padding: 8px;
+  font-size: 0.875rem;
+  /* /* line-height: 1.25rem; */
+  height: 100%;
 }

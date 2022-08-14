@@ -41,22 +41,11 @@ const Navigation = () => {
                     >
                         Add film
                     </ManageBtn>
-                    <ManageBtn onClick={ ()=>{
-                        setIsOpen(true)
-                        setModalContent('edit')
-                        // setIsOpen(true)
-                    } }
-                    >
-                        Edit film
-                    </ManageBtn>
-                    <ManageBtn onClick={ ()=>{
-                        setIsOpen(true)
-                        setModalContent('delete')
-                    } }
-                    >
-                        Delete film
-                    </ManageBtn>
-                    { isOpen && <ModalAdd visible={ isOpen } setVisible={ setIsOpen } content={modalContent}/>}
+                    { isOpen && <ModalAdd 
+                        visible={ isOpen } 
+                        setVisible={ setIsOpen } 
+                        content={modalContent}/>
+                    }
                 </div>
                 <Select 
                     value={ selectedSort }

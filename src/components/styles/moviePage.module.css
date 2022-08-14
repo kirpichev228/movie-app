@@ -1,0 +1,76 @@
+.movieWrapper {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color: #1b1a1c;
+  height: 80vh;
+}
+
+.movieHeading {
+  margin: 20px 50px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.movieContainer {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.movieInfo {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  height: 80%;
+}
+
+.movieTagline,
+.movieGenres,
+.movieRelease,
+.movieRuntime,
+.movieOverwiew {
+  font-weight: 100;
+  font-size: 20px;
+}
+
+.image {
+  width: 400px;
+  height: 600px;
+}
+
+.movieSpan {
+  color: #876afe;
+  font-size: 30px;
+  font-weight: 200;
+}
+
+.movieNumbers {
+  display: flex;
+  gap: 70px;
+  width: 100%;
+}
+
+.movieNumbersContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.numbersHeading {
+  color: #876afe;
+  font-size: 23px;
+}
+
+.number {
+  font-size: 20px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}

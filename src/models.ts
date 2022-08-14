@@ -1,3 +1,6 @@
+import { Dispatch } from "react"
+import { AnyAction } from "redux"
+
 export interface IItem {
     budget: number,
     genres: string[],
@@ -19,13 +22,25 @@ export interface IMoviesResponce {
 
 export interface IStoreItem {
     item: IItem
-    itemsList: any,
-    itemsListCopy: any
+    itemsList: IItem[],
+    itemsListCopy: IItem[],
+    modalOpen: boolean,
+    content: string,
+    deleted: boolean, 
+    watchList: number[],
+}
+
+export interface IEditMovie {
+    dispatch: Dispatch<AnyAction>
+    values: IItem,
+    currentMovie: IItem,
+    movieList: IItem[]
 }
 
 export type btnManage = {
     children: string
     onClick(): void
+    className?: any
 }
 
 export interface ISelectProps {
@@ -41,9 +56,10 @@ export type optionsType = {
 }
 
 export type reducerActionType = {
-    values: any
+    value: any
     type: string
-    payload: IItem
+    payload: IItem & number
+    movie: number
 }
 
 export enum MovieAsctionEnum  {
@@ -60,5 +76,18 @@ export enum ListFilterEnum {
     setCopy = 'SET_COPY',
     edit = 'EDIT_LIST',
     add = 'ADD_MOVIES',
-    delete = 'Delete_movies'
+    delete = 'Delete_movies',
+    
+}
+
+export enum ModalEnum {
+    open = 'OPEN_MODAL',
+    setContent = 'SET_CONTENT',
+    deleteCheck = 'DELETE_CHECK',
+}
+
+export enum WatchListEnum {
+    push = 'PUSH_TO_LIST',
+    delete = 'DELETE_FROM_LIST',
+    clear = 'CLEAR_LIST'
 }

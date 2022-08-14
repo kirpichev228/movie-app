@@ -1,84 +1,100 @@
-
 .modalWindow {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 2;
-    background: rgba(0, 0, 0, 0.8);
-    display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
 }
 
 .modalWindow.active {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modalContainer {
-    width: 450px;
-    /* height: 700px; */
-    padding: 40px 50px;
-    border: 2px solid #db4079;
-    background-color: #211e21;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
+  width: 450px;
+  /* height: 700px; */
+  padding: 40px 50px;
+  border: 2px solid #876afe;
+  background-color: #211e21;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .modalForm {
-    display: flex;
-    flex-direction: column;
-    /* gap: 10px; */
+  display: flex;
+  flex-direction: column;
+  /* gap: 10px; */
 }
 
-input[type='date'] {
-    ::-webkit-calendar-picker-indicator {
-        background-color: #db4079;
-    }
+input[type="date"] {
+  ::-webkit-calendar-picker-indicator {
+    background-color: #876afe;
+  }
 }
-
 
 .submitButton {
-    width: 130px;
-    height: 40px;
-    margin-left: 15px;
-    border: #db4079 2px solid;
-    background-color: #db4079;
-    border-radius: 7px;
-    font-size: 19px;
-    transition-duration: 0.3s;
-    color: white;
-    position: relative;
-    top: 40px;
+  width: 130px;
+  height: 40px;
+  /* margin-left: 15px; */
+  border: #876afe 2px solid;
+  background-color: #876afe;
+  border-radius: 7px;
+  font-size: 19px;
+  transition-duration: 0.3s;
+  color: white;
+  /* position: relative; */
+  /* top: 40px; */
+  align-self: center;
+  margin-top: 15px;
 }
 
 .cancelButton {
-    width: 130px;
-    height: 40px;
-    /* margin-left: 15px; */
-    margin-right: 15px;
-    border: #db4079 2px solid;
-    border-radius: 7px;
-    font-size: 19px;
-    transition-duration: 0.3s;
-    color: #db4079;
-    align-self: flex-start;
-
+  width: 130px;
+  height: 40px;
+  /* margin-left: 15px; */
+  margin-right: 15px;
+  border: #876afe 2px solid;
+  border-radius: 7px;
+  font-size: 19px;
+  transition-duration: 0.3s;
+  color: #876afe;
+  align-self: flex-start;
 }
 
 .cancelButton:hover {
-    background-color: #db4079;
-    color: white;
-    transition-duration: 0.3s;
+  background-color: #876afe;
+  color: white;
+  transition-duration: 0.3s;
 }
 
 .submitButton:hover {
-    background-color: ivory;
-    color: #db4079;
-    transition-duration: 0.3s;
+  background-color: ivory;
+  color: #876afe;
+  transition-duration: 0.3s;
+}
+
+.modalDeleted {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 200px;
+  height: 50px;
+  background-color: #211e21;
+  border: #876afe 2px solid;
+  color: #876afe;
+  font-weight: 300;
+  font-size: 30px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

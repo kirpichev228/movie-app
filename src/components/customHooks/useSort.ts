@@ -9,10 +9,10 @@ export const useSort = () => {
     const itemsListCopy = useSelector((state: IStoreItem) => state.itemsListCopy)
 
     const sortedPosts = (selectedSort: keyof IItem) => {
-        let cock = itemsListCopy.sort( (a: IItem, b: IItem) => a[selectedSort] > b[selectedSort] ? 1 : -1 )
+        let sort = itemsListCopy.sort( (a: IItem, b: IItem) => a[selectedSort] > b[selectedSort] ? 1 : -1 )
         dispatch({
             type: ListFilterEnum.set,
-            payload: cock
+            payload: sort
         }) 
     }
         

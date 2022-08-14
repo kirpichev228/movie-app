@@ -1,14 +1,15 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import Header from './components/Header';
-import Main from './components/Main';
+import AppRouter from './components/AppRouter';
 
 
 function App() {
   return (
-    <div className="App bg-[#2e2b30] text-white flex flex-col items-center">
+    <BrowserRouter>
       <Header/>
-      <Main/>
-    </div>
+      <AppRouter/>
+    </BrowserRouter>
   );
 }
 

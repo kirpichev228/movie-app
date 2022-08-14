@@ -7,3 +7,22 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.modalDelete-enter {
+    opacity: 0;
+    transform: translateX(100%) ;
+  }
+  .modalDelete-enter-active {
+    opacity: 1;
+    transform: translateX(50px) ;
+    transition: all 500ms ease-in;
+  }
+  .modalDelete-exit {
+    opacity: 1;
+    transform: translateX(50px) ;
+  }
+  .modalDelete-exit-active {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 500ms ease-in;
+  }
