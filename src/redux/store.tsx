@@ -22,7 +22,7 @@ const defaultState: IStoreItem = {
     modalOpen: false,
     content: '',
     deleted: false,
-    watchList: [ ],
+    watchList: [],
 }
 
 

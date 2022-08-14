@@ -21,35 +21,35 @@ const Item = ({ item, ...props }: productProps, ) => {
         currentTarget.src = 'https://i.kym-cdn.com/photos/images/facebook/000/483/553/f73.png'
     }
 
-  const watchList = useSelector((state: IStoreItem) => state.watchList)
+//   const watchList = useSelector((state: IStoreItem) => state.watchList)
 
 
-    const addTolist = (e) => {
-        e.stopPropagation()
-        if (watchList.includes(item.id)) {
-            return watchList
-        } else {
-            dispatch({
-                type: WatchListEnum.push,
-                movie: item.id
-            })
-        }        
-    }
+    // const addTolist = (e) => {
+    //     e.stopPropagation()
+    //     if (watchList.includes(item.id)) {
+    //         return watchList
+    //     } else {
+    //         dispatch({
+    //             type: WatchListEnum.push,
+    //             movie: item.id
+    //         })
+    //     }        
+    // }
     return (
         <div {...props} className={ classes.movieContainer } >
-            <InfoButton/>
+            <InfoButton id={item.id}/>
             <img 
                 src={ item.poster_path } 
                 alt={ item.title } 
                 className={classes.itemImg}
                 onError={ imgDefault }
             ></img>
-            <button 
+            {/* <button 
                 className='absolute bg-white text-black'
                 onClick={ addTolist }
             >
                 add
-            </button>
+            </button> */}
             <div className={ classes.movieInfo } onClick={ e => e.stopPropagation() }>
                 <h3 className="item-name font-bold text-xl">
                     { item.title.length > 21 

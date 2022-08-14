@@ -39,7 +39,7 @@ const ItemFill = () => {
       <TransitionGroup className='absolute'>
         { isDeleted && 
         <CSSTransition
-          key={123}
+          key={1230}
           timeout={500}
           classNames='modalDelete'
         >

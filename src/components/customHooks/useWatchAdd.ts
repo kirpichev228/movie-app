@@ -6,8 +6,8 @@ export const useWatchAdd = (id: number) => {
 
     const dispatch = useDispatch()
 
-    dispatch({
-        type: WatchListEnum.push,
-        movie: id
-    })
+    // dispatch({
+    //     type: WatchListEnum.push,
+    //     movie: id
+    // })
 }

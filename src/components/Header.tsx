@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { IStoreItem } from '../models'
 import { useSearch } from './customHooks/useSearch'
 
 const Header = () => {
@@ -14,8 +16,18 @@ const Header = () => {
             MovieApp
         </h1>
         <nav className='flex gap-4'>
-          <Link to={'/watchlist'} >WatchList</Link>
-          <Link to={'/posts'} >Posts</Link>
+          <Link 
+            to={'/watchlist'}
+            className='text-xl hover:text-[#876afe] transition-all'
+          >
+            WatchList
+          </Link>
+          <Link 
+            className='text-xl hover:text-[#876afe] transition-all'
+            to={'/posts'} 
+          >
+            Posts
+          </Link>
         </nav>
         <input 
             value={ searchQuery }
