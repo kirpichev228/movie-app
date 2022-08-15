@@ -7,9 +7,9 @@ const Select = ({options, defaultValue, value, onChange}: ISelectProps) => {
   return (
     <>
         
-            <span className=" opacity-75 mx-2"></span>
+            <span className=" opacity-75"></span>
             <select 
-                className=" bg-slate-600 rounded-md outline-none"
+                className=" bg-[#17161b] border border-[#3f414d] px-2 py-1 rounded-md outline-none"
                 value={value}
                 onChange={event => onChange(event.target.value)}
             >

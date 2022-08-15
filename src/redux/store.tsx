@@ -1,6 +1,6 @@
 import { applyMiddleware, createStore } from "redux"
 import thunk from 'redux-thunk';
-import { MovieAsctionEnum, IStoreItem, reducerActionType, ListFilterEnum, ModalEnum, WatchListEnum } from "../models"
+import { MovieAsctionEnum, IStoreItem, reducerActionType, ListFilterEnum, ModalEnum, WatchListEnum, GenreSort } from "../models"
 
 const defaultState: IStoreItem = {
     item: {
@@ -23,6 +23,7 @@ const defaultState: IStoreItem = {
     content: '',
     deleted: false,
     watchList: [],
+    selectedGenres: []
 }
 
 
@@ -73,6 +74,15 @@ const reducer = (state = defaultState, action: reducerActionType) => {
 
         case WatchListEnum.clear:
             return {...state, watchList: state.watchList = []}
+
+        case GenreSort.addGenre:
+            return {...state, selectedGenres: state.selectedGenres.concat(action.genre) }
+
+        case GenreSort.deleteGenre:
+            return {...state, selectedGenres: state.selectedGenres.filter(item => item !== action.genre) }
+
+        case GenreSort.clear:
+            return {...state, }
 
         default:
             return state

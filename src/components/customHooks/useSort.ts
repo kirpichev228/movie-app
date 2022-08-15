@@ -6,15 +6,22 @@ export const useSort = () => {
 
     const dispatch = useDispatch()
 
-    const itemsListCopy = useSelector((state: IStoreItem) => state.itemsListCopy)
+    const itemsListCopy = useSelector((state: IStoreItem) => state.itemsList)
 
     const sortedPosts = (selectedSort: keyof IItem) => {
-        let sort = itemsListCopy.sort( (a: IItem, b: IItem) => a[selectedSort] > b[selectedSort] ? 1 : -1 )
-        dispatch({
-            type: ListFilterEnum.set,
-            payload: sort
-        }) 
+        if (selectedSort.includes(' ')) {
+            let sortReverse = itemsListCopy.sort( (a: IItem, b: IItem) => a[selectedSort.trim()] > b[selectedSort.trim()] ? 1 : -1 ).reverse()
+            dispatch({
+                type: ListFilterEnum.set,
+                payload: sortReverse
+            })
+        } else {
+            let sort = itemsListCopy.sort( (a: IItem, b: IItem) => a[selectedSort] > b[selectedSort] ? 1 : -1 )
+            dispatch({
+                type: ListFilterEnum.set,
+                payload: sort
+            })
+        }       
     }
-        
     return { sortedPosts }
 }

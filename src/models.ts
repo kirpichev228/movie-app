@@ -28,6 +28,7 @@ export interface IStoreItem {
     content: string,
     deleted: boolean, 
     watchList: number[],
+    selectedGenres: string[]
 }
 
 export interface IEditMovie {
@@ -60,6 +61,7 @@ export type reducerActionType = {
     type: string
     payload: IItem & number
     movie: number
+    genre: string
 }
 
 export enum MovieAsctionEnum  {
@@ -90,4 +92,10 @@ export enum WatchListEnum {
     push = 'PUSH_TO_LIST',
     delete = 'DELETE_FROM_LIST',
     clear = 'CLEAR_LIST'
+}
+
+export enum GenreSort {
+    addGenre = 'ADD_GENRE',
+    deleteGenre = 'DELETE_GENRE',
+    clear = 'CLEAR_GENRES'
 }

@@ -1,14 +1,16 @@
 import { useDispatch, useSelector } from "react-redux"
 import { IItem, IStoreItem, ListFilterEnum } from "../../models"
 
-export const useSearch = (searchQuery: string) => {
+export const useSearch = () => {
 
     const dispatch = useDispatch()
 
     const itemsList = useSelector((state: IStoreItem) => state.itemsList)
-    const itemsListCopy = useSelector((state: IStoreItem) => state.itemsListCopy)
+    // const itemsListCopy = useSelector((state: IStoreItem) => state.itemsListCopy)
 
-    const Test = ( ) => {
+    const Test = ( searchQuery: string) => {
+        // если что то пойдет не так то в серчресалте вставить копию
+        const searchResult = itemsList.filter( (post: IItem) => post.title.toLowerCase().includes(searchQuery.toLowerCase().trim()) )
         searchQuery.trim().length === 1 || 0
           ?
             dispatch({
@@ -18,7 +20,7 @@ export const useSearch = (searchQuery: string) => {
           :
             dispatch({
               type: ListFilterEnum.setCopy,
-              payload: itemsListCopy.filter( (post: IItem) => post.title.toLowerCase().includes(searchQuery.toLowerCase().trim()) )
+              payload: searchResult
             })
       }
     return { Test }
