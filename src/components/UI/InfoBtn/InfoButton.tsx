@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { IStoreItem, ModalEnum, WatchListEnum } from '../../../models'
-import classes from './infoButton.module.css'
+import { IStoreItem, WatchListEnum } from '../../../models'
+import classes from '../../styles/movieCard.module.css'
+
 
 type PropsType = {
   id: number | undefined
@@ -17,7 +18,7 @@ const InfoButton = ({id, ...props}: PropsType) => {
   useEffect(()=>{
     if(!menuVisibele) return;
 
-    const handleClick = e => {
+    const handleClick = (e) => {
       if (!menuRef.current) return;
       if (!menuRef.current.contains(e.target)) {
         setMenuVisibele(false)
@@ -31,7 +32,7 @@ const InfoButton = ({id, ...props}: PropsType) => {
     }
   }, [menuVisibele])
 
-  const buttonClick = (e) => {
+  const buttonClick = (e: { stopPropagation: () => void }) => {
     e.stopPropagation()
     setMenuVisibele(true)
   }

@@ -1,6 +1,10 @@
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
+
+  const dispatch = useDispatch()
+  // const
 
   return (
     <header className='h-[10vh] text-white flex justify-between items-center py-5 px-20 w-full bg-[#17161b] border-b-2 border-[#1b1a1f]'>

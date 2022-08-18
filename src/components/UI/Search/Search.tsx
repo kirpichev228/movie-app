@@ -4,7 +4,6 @@ import { useSearch } from '../../customHooks/useSearch'
 const Search = () => {
 
     const [searchQuery, setSearchQuery] = useState('')
-
     const {Test} = useSearch()
 
     return (

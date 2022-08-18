@@ -23,7 +23,11 @@ const defaultState: IStoreItem = {
     content: '',
     deleted: false,
     watchList: [],
-    selectedGenres: []
+    selectedGenres: [],
+    pagination: 1,
+    pageItems: [],
+    pageStartIndex: 0,
+    pageEndIndex: 24,
 }
 
 
@@ -45,8 +49,20 @@ const reducer = (state = defaultState, action: reducerActionType) => {
         case ListFilterEnum.search:
             return {...state, itemsList: action.payload}
 
+        case ListFilterEnum.setPage:
+            return {...state, pagination: state.pagination = action.payload}
+
+        case ListFilterEnum.setPageItems:
+            return {...state, pageItems: state.pageItems = action.payload}
+
         case ListFilterEnum.setCopy:
             return {...state, itemsListCopy: state.itemsListCopy = action.payload}
+
+        case ListFilterEnum.setStart:
+            return {...state, pageStartIndex: state.pageStartIndex = action.payload}
+
+        case ListFilterEnum.setEnd:
+            return {...state, pageEndIndex: state.pageEndIndex = action.payload}
             
         case ListFilterEnum.edit:
             return {...state, itemsList: state.itemsListCopy[action.payload] = action.value}

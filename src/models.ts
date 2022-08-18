@@ -28,7 +28,11 @@ export interface IStoreItem {
     content: string,
     deleted: boolean, 
     watchList: number[],
-    selectedGenres: string[]
+    selectedGenres: string[],
+    pagination: number,
+    pageItems: IItem[],
+    pageStartIndex: number,
+    pageEndIndex: number,
 }
 
 export interface IEditMovie {
@@ -79,7 +83,10 @@ export enum ListFilterEnum {
     edit = 'EDIT_LIST',
     add = 'ADD_MOVIES',
     delete = 'Delete_movies',
-    
+    setPage = 'SET_PAGE',
+    setPageItems = 'SET_PAGE_ITEMS',
+    setStart = 'SET_START',
+    setEnd = 'SET_END'
 }
 
 export enum ModalEnum {

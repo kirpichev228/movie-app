@@ -1,27 +1,41 @@
 import { useDispatch, useSelector } from "react-redux"
 import { IItem, IStoreItem, ListFilterEnum } from "../../models"
+import { usePage } from "./usePage"
 
 export const useSearch = () => {
 
     const dispatch = useDispatch()
 
-    const itemsList = useSelector((state: IStoreItem) => state.itemsList)
-    // const itemsListCopy = useSelector((state: IStoreItem) => state.itemsListCopy)
+    const itemsList = useSelector((state: IStoreItem) => state.itemsListCopy)
+    const startIndex = useSelector((state: IStoreItem) => state.pageStartIndex)
+    const endIndex = useSelector((state: IStoreItem) => state.pageEndIndex)
+    
+    const {setPage} = usePage()
 
     const Test = ( searchQuery: string) => {
-        // если что то пойдет не так то в серчресалте вставить копию
+        setPage(1)
         const searchResult = itemsList.filter( (post: IItem) => post.title.toLowerCase().includes(searchQuery.toLowerCase().trim()) )
-        searchQuery.trim().length === 1 || 0
-          ?
-            dispatch({
-              type: ListFilterEnum.setCopy,
-              payload: itemsList
+        if (searchQuery.trim().length === 1 || 0) {
+          dispatch({
+            type: ListFilterEnum.set,
+            payload: itemsList
+          })
+          dispatch({
+            type: ListFilterEnum.setPageItems,
+            payload: itemsList.slice(startIndex, endIndex)
+          })
+        } else {
+          dispatch({
+            type: ListFilterEnum.set,
+            payload: searchResult
             })
-          :
-            dispatch({
-              type: ListFilterEnum.setCopy,
-              payload: searchResult
-            })
+          dispatch({
+            type: ListFilterEnum.setPageItems,
+            payload: searchResult.slice(startIndex, endIndex)
+          })
+          
+        }  
+                 
       }
     return { Test }
 }

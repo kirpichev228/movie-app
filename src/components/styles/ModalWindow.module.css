@@ -19,7 +19,6 @@
 
 .modalContainer {
   width: 450px;
-  /* height: 700px; */
   padding: 40px 50px;
   border: 2px solid #876afe;
   background-color: #211e21;
@@ -32,7 +31,6 @@
 .modalForm {
   display: flex;
   flex-direction: column;
-  /* gap: 10px; */
 }
 
 input[type="date"] {
@@ -44,15 +42,12 @@ input[type="date"] {
 .submitButton {
   width: 130px;
   height: 40px;
-  /* margin-left: 15px; */
   border: #876afe 2px solid;
   background-color: #876afe;
   border-radius: 7px;
   font-size: 19px;
   transition-duration: 0.3s;
   color: white;
-  /* position: relative; */
-  /* top: 40px; */
   align-self: center;
   margin-top: 15px;
 }
@@ -60,7 +55,6 @@ input[type="date"] {
 .cancelButton {
   width: 130px;
   height: 40px;
-  /* margin-left: 15px; */
   margin-right: 15px;
   border: #876afe 2px solid;
   border-radius: 7px;
@@ -97,4 +91,28 @@ input[type="date"] {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.paginationButton {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #211e21;
+  border: #876afe 2px solid;
+  border-radius: 25px;
+  color: white;
+  transition-duration: 0.3s;
+}
+
+.paginationButton:hover {
+  background-color: #876afe;
+  transition-duration: 0.3s;
+}
+
+.paginationButton:active {
+  background-color: white;
+  color: #211e21;
+  transition-duration: 0.2s;
 }

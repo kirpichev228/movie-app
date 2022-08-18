@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { IEditMovie, IStoreItem, ListFilterEnum, ModalEnum } from '../../../../models'
+import { IEditMovie, IStoreItem, ListFilterEnum } from '../../../../models'
 import CheckboxDropDown from '../inputs/CheckboxDropDown'
 import DateInput from '../inputs/DateInput'
 import TextInput from '../inputs/TextInput'
 import classes from '../../../styles/ModalWindow.module.css'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { editMovie } from '../../../functions/editMovie'
 import axios, { AxiosError } from 'axios'
 
 const EditModal = () => {
@@ -80,7 +79,13 @@ const EditModal = () => {
                 value={ formik.values.title }
                 onChange={ formik.handleChange }
             />
-            { formik.errors.title ? <p className=' text-xs text-red-700'>Must be 50 characters or less</p> : null }
+            { 
+            formik.errors.title 
+            ? 
+                <p className=' text-xs text-red-700'>Must be 50 characters or less</p> 
+            : 
+                null 
+            }
             <TextInput 
                 name='tagline'
                 heading='tagline' 
@@ -89,14 +94,25 @@ const EditModal = () => {
                 value={ formik.values.tagline }
                 onChange={ formik.handleChange }
             />
-            { formik.errors.tagline ? <p className=' text-xs text-red-700'>Must be 50 characters or less</p> : null }
+            { 
+            formik.errors.tagline 
+            ? 
+                <p className=' text-xs text-red-700'>Must be 50 characters or less</p> 
+            : 
+                null 
+            }
             <DateInput
                 name='release_date'
-                // type='text'
                 value={ formik.values.release_date }
                 onChange={ formik.handleChange }
             />
-            { formik.errors.release_date ? <p className=' text-xs text-red-700'>Required</p> : null }
+            { 
+            formik.errors.release_date 
+            ? 
+                <p className=' text-xs text-red-700'>Required</p> 
+            : 
+                null 
+            }
             <TextInput 
                 name='poster_path'
                 heading='movie url' 
@@ -105,13 +121,25 @@ const EditModal = () => {
                 value={ formik.values.poster_path }
                 onChange={ formik.handleChange }
             />
-            { formik.errors.poster_path ? <p className=' text-xs text-red-700'>Required</p> : null }
+            { 
+            formik.errors.poster_path 
+            ? 
+                <p className=' text-xs text-red-700'>Required</p> 
+            : 
+                null 
+            }
             <CheckboxDropDown
                 value={ formik.values.genres }
                 name='genres'
                 onChange={ formik.handleChange }
             />
-            { formik.errors.genres ? <p className=' text-xs text-red-700'>Maximum 4 genres</p> : null }
+            { 
+            formik.errors.genres 
+            ? 
+                <p className=' text-xs text-red-700'>Maximum 4 genres</p> 
+            : 
+                null 
+            }
             <TextInput 
                 name='overview'
                 heading='overview' 
@@ -120,7 +148,13 @@ const EditModal = () => {
                 value={ formik.values.overview }
                 onChange={ formik.handleChange }
             />
-            { formik.errors.overview ? <p className=' text-xs text-red-700'>1000 characters or less</p> : null }
+            { 
+            formik.errors.overview 
+            ? 
+                <p className=' text-xs text-red-700'>1000 characters or less</p> 
+            : 
+                null 
+            }
             <div className="flex w-full gap-3">
                 <div className='flex flex-col'>
                     <TextInput 
@@ -132,7 +166,13 @@ const EditModal = () => {
                         value={ formik.values.runtime }
                         onChange={ formik.handleChange }
                     />
-                    { formik.errors.runtime ? <p className=' text-xs text-red-700'>Max 300 mins</p> : null }
+                    { 
+                    formik.errors.runtime 
+                    ? 
+                        <p className=' text-xs text-red-700'>Max 300 mins</p> 
+                    : 
+                        null 
+                    }
                 </div>
                 <div className="flex flex-col">
                    <TextInput 
@@ -144,7 +184,13 @@ const EditModal = () => {
                         value={ formik.values.budget }
                         onChange={ formik.handleChange }
                     />
-                    { formik.errors.budget ? <p className=' text-xs text-red-700'>1 bils or less</p> : null } 
+                    { 
+                    formik.errors.budget 
+                    ? 
+                        <p className=' text-xs text-red-700'>1 bils or less</p> 
+                    : 
+                        null 
+                    } 
                 </div>
                 <div className="flex flex-col">
                     <TextInput 
@@ -156,9 +202,14 @@ const EditModal = () => {
                         value={ formik.values.revenue }
                         onChange={ formik.handleChange }
                     />
-                    { formik.errors.revenue ? <p className=' text-xs text-red-700'>5 bils or less</p> : null }
+                    { 
+                    formik.errors.revenue 
+                    ? 
+                        <p className=' text-xs text-red-700'>5 bils or less</p> 
+                    : 
+                        null 
+                    }
                 </div>
-                
             </div>
             <div className="flex w-full gap-3">
                 <div className="flex flex-col">
@@ -171,7 +222,13 @@ const EditModal = () => {
                         value={ formik.values.vote_average }
                         onChange={ formik.handleChange }
                     />
-                    { formik.errors.vote_average ? <p className=' text-xs text-red-700'>10</p> : null } 
+                    { 
+                    formik.errors.vote_average 
+                    ? 
+                        <p className=' text-xs text-red-700'>10</p> 
+                    : 
+                        null 
+                    } 
                 </div>
                 <div className="flex flex-col">
                     <TextInput 
@@ -183,9 +240,14 @@ const EditModal = () => {
                         value={ formik.values.vote_count }
                         onChange={ formik.handleChange }
                     />
-                    { formik.errors.vote_count ? <p className=' text-xs text-red-700'>10000</p> : null }
+                    { 
+                        formik.errors.vote_count 
+                    ? 
+                        <p className=' text-xs text-red-700'>10000</p> 
+                    : 
+                        null 
+                    }
                 </div>
-                
             </div>
             <button 
                 type='submit'
@@ -193,8 +255,20 @@ const EditModal = () => {
             >
                 SUBMIT
             </button>
-            {sucсess===1 && <p className=' text-green-600 font-extralight mt-2 text-sm text-center w-full'>Success!</p>}
-            {sucсess===2 && <p className=' text-red-600 font-extralight mt-2 text-sm text-center w-full'>Something went wrong!</p>}
+            { 
+            sucсess===1 
+            && 
+                <p className='text-green-600 font-extralight mt-2 text-sm text-center w-full'>
+                    Success!
+                </p>
+            }
+            { 
+            sucсess===2 
+            && 
+                <p className='text-red-600 font-extralight mt-2 text-sm text-center w-full'>
+                    Something went wrong!
+                </p>
+            }
         </form>
     </>
   )
