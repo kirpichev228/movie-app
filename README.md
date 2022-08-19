@@ -13,4 +13,5 @@ https://github.com/VarvaraZadnepriak/MoviesAPI.ReactJS
 * React-router-dom
 * Tailwind.css
 * formik
+* axios
 
