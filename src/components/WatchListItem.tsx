@@ -5,7 +5,6 @@ import ManageBtn from './UI/ManageList/ManageBtn'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { IStoreItem, WatchListEnum } from '../models'
-import { InstanceOf } from 'reselect/es/types'
 
 type WatchListType = {
     id: number
@@ -28,7 +27,7 @@ const WatchListItem = (props: WatchListType) => {
         setStyle({display: 'none'})
     }
 
-    function imgDefault ({ currentTarget }): void {
+    function imgDefault ({ currentTarget }: any): void {
         currentTarget.onerror = null
         currentTarget.src = 'https://i.kym-cdn.com/photos/images/facebook/000/483/553/f73.png'
     }

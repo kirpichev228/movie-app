@@ -5,7 +5,6 @@ import classes from './styles/ModalWindow.module.css'
 import AddModal from './UI/ModalWindow/WindowsFilling/AddModal'
 import DeleteModal from './UI/ModalWindow/WindowsFilling/DeleteModal'
 import EditModal from './UI/ModalWindow/WindowsFilling/EditModal'
-// import { deleteMovie } from './functions/deleteMovie'
 
 type visibility = {
     visible: boolean
@@ -21,7 +20,6 @@ const ModalAdd = ({visible, setVisible, content}:visibility) => {
     }
     const dispatch = useDispatch()
     const open = useSelector((state: IStoreItem) => state.modalOpen)
-
 
     const nullifyModal = () => {
         dispatch({type:ModalEnum.open, payload: false})
@@ -46,19 +44,6 @@ const ModalAdd = ({visible, setVisible, content}:visibility) => {
             { content === 'edit' && <EditModal/> }
             { content === 'delete' && <DeleteModal/> }
             <div className="w-full flex items-center justify-end">
-                {/* <button
-                    className={ classes.cancelButton }
-                    onClick={ nullifyModal }
-                >
-                    CANCEL
-                </button> */}
-                {/* <button
-                    type='submit'
-                    className={ classes.submitButton }
-                    onClick = {switchSubmit}
-                >
-                    SUBMIT
-                </button> */}
             </div>
         </div>
     </div>

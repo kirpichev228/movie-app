@@ -27,7 +27,6 @@ const CheckboxDropDown = (props:CHBDDType) => {
         { genre: 'War'},
         { genre: 'Mystery'}
     ]
-    // console.log (data)
 
     const [options] = useState(data)
 
@@ -35,11 +34,11 @@ const CheckboxDropDown = (props:CHBDDType) => {
         <label className='text-lg font-light w-full text-[#876afe] mt-3'>
             GENRE
             <Multiselect 
-                name={props.name}
-                onChange={props.onChange}
-                selectedValues={props.value.map((item) => {
+                name={ props.name }
+                onChange={ props.onChange }
+                selectedValues={ props.value.map((item) => {
                     return {genre: item}
-                } )}
+                } ) }
                 
                 options = { options } 
                 displayValue = 'genre' 

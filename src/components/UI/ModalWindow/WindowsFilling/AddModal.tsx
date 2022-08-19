@@ -5,7 +5,7 @@ import CheckboxDropDown from '../inputs/CheckboxDropDown'
 import DateInput from '../inputs/DateInput'
 import TextInput from '../inputs/TextInput'
 import { useDispatch } from 'react-redux'
-import { IItem, ListFilterEnum, MovieAsctionEnum } from '../../../../models'
+import { ListFilterEnum, MovieAsctionEnum } from '../../../../models'
 import classes from '../../../styles/ModalWindow.module.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
@@ -16,6 +16,20 @@ const AddModal = () => {
     const dispatch = useDispatch()
     const [sucсess, setSucсess] = useState(0)
     const navigate = useNavigate()
+
+    type FormikTypes = {
+        budget: number,
+        genres: string[],
+        overview: string,
+        poster_path: string,
+        release_date: string,
+        revenue: number,
+        runtime: number,
+        tagline: string,
+        title: string,
+        vote_average: number,
+        vote_count: number,
+    }
 
     const formik = useFormik({
         initialValues: {
@@ -44,11 +58,10 @@ const AddModal = () => {
             vote_average: Yup.number().min(1).max(10, 'Max score - 10').required('Required') ,
             vote_count: Yup.number().min(1).max(10000, 'Max votes - 10000').required('Required') 
         }),
-        onSubmit(values: IItem) {            
+        onSubmit(values: FormikTypes) {            
             (async function () {
                 try{
                     const response = await axios.post('http://localhost:4000/movies', values)
-                    formik.values.id = response.data.id
                     dispatch({
                         type: MovieAsctionEnum.edit,
                         payload: values
@@ -66,8 +79,6 @@ const AddModal = () => {
             })()
         },
     })
-
-    
 
   return (
     <>

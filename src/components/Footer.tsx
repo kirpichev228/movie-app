@@ -8,7 +8,7 @@ const Footer = () => {
         </span>
         <a 
             href="https://github.com/kirpichev228/movie-app/tree/dev" 
-            target={'_blank'} 
+            target={ '_blank' } 
             className='hover:text-[#876afe] transition-all' 
             rel="noreferrer"
         > 

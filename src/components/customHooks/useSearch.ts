@@ -12,7 +12,7 @@ export const useSearch = () => {
     
     const {setPage} = usePage()
 
-    const Test = ( searchQuery: string) => {
+    const Search = ( searchQuery: string) => {
         setPage(1)
         const searchResult = itemsList.filter( (post: IItem) => post.title.toLowerCase().includes(searchQuery.toLowerCase().trim()) )
         if (searchQuery.trim().length === 1 || 0) {
@@ -37,5 +37,5 @@ export const useSearch = () => {
         }  
                  
       }
-    return { Test }
+    return { Search }
 }

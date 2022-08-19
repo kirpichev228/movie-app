@@ -1,9 +1,8 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { Params } from "react-router-dom"
 import { IItem } from "../../models"
 
-export function useMovie (id: number) {
+export function useMovie (id: string | undefined | number) {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
     const [movie, setMovie] = useState<IItem>()

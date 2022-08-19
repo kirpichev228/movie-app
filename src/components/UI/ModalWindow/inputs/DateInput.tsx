@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, useState } from 'react'
+import React, { ChangeEventHandler } from 'react'
 
 type datePropsType = {
   value: string
@@ -12,7 +12,7 @@ const DateInput = (props:datePropsType) => {
     <label className='text-lg font-light w-full text-[#876afe] mt-3'>
         REALESE DATE
         <input 
-            name={props.name}
+            name={ props.name }
             value={ props.value }
             onChange = { props.onChange }
             type="date" 

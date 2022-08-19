@@ -4,7 +4,7 @@ import { AnyAction } from "redux"
 export interface IItem {
     budget: number,
     genres: string[],
-    id?: number,
+    id: number,
     overview: string
     poster_path: string
     release_date: string
@@ -63,8 +63,8 @@ export type optionsType = {
 export type reducerActionType = {
     value: any
     type: string
-    payload: IItem & number
-    movie: number
+    payload: IItem & number & string
+    movie: number & number[]
     genre: string
 }
 

@@ -1,30 +1,31 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { IStoreItem, WatchListEnum } from '../../../models'
+import { IStoreItem, MovieAsctionEnum, WatchListEnum } from '../../../models'
 import classes from '../../styles/movieCard.module.css'
 
 
 type PropsType = {
-  id: number | undefined
+  id: number
 }
 
-const InfoButton = ({id, ...props}: PropsType) => {
+const InfoButton = ({id}: PropsType) => {
 
   const [menuVisibele, setMenuVisibele] = useState(false)
   const dispatch = useDispatch()
-  const movieList = useSelector((state:IStoreItem) => state.watchList)
-  const menuRef = useRef(null)
+  const watchList = useSelector((state:IStoreItem) => state.watchList)
+  const item = useSelector((state: IStoreItem) => state.item)
+  const menuRef = useRef<HTMLDivElement>(null)
   useEffect(()=>{
     if(!menuVisibele) return;
 
-    const handleClick = (e) => {
+    const handleClick = (e: any) => {
       if (!menuRef.current) return;
       if (!menuRef.current.contains(e.target)) {
         setMenuVisibele(false)
       }
     }
-
+ 
     document.addEventListener('click', handleClick)
 
     return () => {
@@ -39,38 +40,42 @@ const InfoButton = ({id, ...props}: PropsType) => {
 
   return (
     <>
-      <button className={ classes.infoBtn } onClick={buttonClick}>
+      <button className={ classes.infoBtn } onClick={ buttonClick }>
           ...
       </button>
       { menuVisibele && 
         <div className={ classes.menuContainer } ref={ menuRef }>
-          { movieList.includes(id)
+          { watchList.includes(id)
             ?
               <p 
                 className='text-white bg-green-600 h-8 px-2 flex items-center'
-                onClick={e => e.stopPropagation()}
+                onClick={ e => e.stopPropagation() }
               >
-                In WatchList!
+                Already In WatchList!
               </p>
             :
               <button 
-                className={classes.menuButton}
+                className={ classes.menuButton }
                 onClick={(e)=>{
                   e.stopPropagation()
                   dispatch({
                     type: WatchListEnum.push,
                     movie: id
                   })
-                }
+                  dispatch({
+                    type: MovieAsctionEnum.pick, 
+                    payload: item
+                  } )
+                  }
                 }
               >
               To WatchList
             </button>
           }
           <Link
-            onClick={e => e.stopPropagation()}
-            to={`/posts/${id}`}
-            className={classes.menuButton}
+            onClick={ e => e.stopPropagation() }
+            to={ `/posts/${id}` }
+            className={ classes.menuButton }
           >
             Movie Info
           </Link>

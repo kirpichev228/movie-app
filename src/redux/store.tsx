@@ -97,9 +97,6 @@ const reducer = (state = defaultState, action: reducerActionType) => {
         case GenreSort.deleteGenre:
             return {...state, selectedGenres: state.selectedGenres.filter(item => item !== action.genre) }
 
-        case GenreSort.clear:
-            return {...state, }
-
         default:
             return state
     }

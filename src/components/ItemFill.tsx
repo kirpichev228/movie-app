@@ -34,7 +34,7 @@ const ItemFill = () => {
     dispatch({
       type: ModalEnum.deleteCheck,
       payload: false
-    })
+    })    
   }
  
   return (

@@ -225,7 +225,7 @@ const EditModal = () => {
                     { 
                     formik.errors.vote_average 
                     ? 
-                        <p className=' text-xs text-red-700'>10</p> 
+                        <p className=' text-xs text-red-700'>10 or less</p> 
                     : 
                         null 
                     } 
@@ -243,7 +243,7 @@ const EditModal = () => {
                     { 
                         formik.errors.vote_count 
                     ? 
-                        <p className=' text-xs text-red-700'>10000</p> 
+                        <p className=' text-xs text-red-700'>10000 or less</p> 
                     : 
                         null 
                     }

@@ -1,14 +1,10 @@
-import axios, { Axios, AxiosError } from "axios"
-import { Dispatch } from "react"
-import { AnyAction } from "redux"
-import { IEditMovie, IItem, ListFilterEnum, ModalEnum,} from "../../models"
-
+import axios from "axios"
+import { IEditMovie, ListFilterEnum} from "../../models"
 
 
 export async function editMovie ({values, dispatch, movieList, currentMovie}: IEditMovie) {
     
     try{
-
         let origMovie = movieList.indexOf(currentMovie)
         dispatch({
             type: ListFilterEnum.edit,
@@ -16,18 +12,8 @@ export async function editMovie ({values, dispatch, movieList, currentMovie}: IE
             value: values
         })
         await axios.put('http://localhost:4000/movies', values)
-        // dispatch({
-        //     type: ModalEnum.isEdited,
-        //     payload: false
-        // })
-        // dispatch({
-        //     type: ModalEnum.isEdited,
-        //     payload: true
-        // })
     }
     catch (e: unknown) {
-        const error = e as AxiosError
-        console.log(error.response);
-        
     }
+    
 }

@@ -4,14 +4,14 @@ import { useSearch } from '../../customHooks/useSearch'
 const Search = () => {
 
     const [searchQuery, setSearchQuery] = useState('')
-    const {Test} = useSearch()
+    const { Search } = useSearch()
 
     return (
         <input 
             value={ searchQuery }
             onChange={ (e) => {
                 setSearchQuery(e.target.value)
-                Test(searchQuery)
+                Search(searchQuery)
             } }
             type='text' 
             placeholder='Search...'

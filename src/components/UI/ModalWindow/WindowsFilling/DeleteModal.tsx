@@ -40,16 +40,18 @@ const DeleteModal = () => {
       <p className='my-5 font-light text-lg'>
           Are you sure you want to delete this movie?
       </p>
-      {sucсess===1 && <p className=' text-red-600 font-extralight text-sm text-center w-full'>Something went wrong!</p>}
+      { sucсess===1 && 
+        <p className=' text-red-600 font-extralight text-sm text-center w-full'>
+          Something went wrong!
+        </p> 
+      }
       <button
-        className={classes.submitButton}
+        className={ classes.submitButton }
         onClick={ deleteMovies }
       >
         SUBMIT
       </button>
-      
     </>
-    
   )
 }
 
