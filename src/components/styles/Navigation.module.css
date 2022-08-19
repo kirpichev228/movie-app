@@ -1,0 +1,29 @@
+.navbar {
+    min-height: 8vh;
+    width: 91.666667%;
+    padding: 10px 32px;
+    border-bottom-width: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sortbar {
+    display: flex;
+    gap: 64px;
+    align-items: center;
+}
+
+@media (max-width: 1170px) {
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    .sortbar {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

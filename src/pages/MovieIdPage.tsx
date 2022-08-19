@@ -60,16 +60,16 @@ const MovieIdPage = () => {
                     <span className={ classes.movieSpan }>Tagline:</span> { movie?.tagline }
                     
                     </h3>
-                    <p className={ classes.movieGenres }>
+                    <p className={ classes.movieFieldName }>
                         <span className={ classes.movieSpan }>Genres:</span> { movie?.genres.join(', ') }
                     </p>
-                    <p className={ classes.movieRelease }>
+                    <p className={ classes.movieFieldName }>
                         <span className={ classes.movieSpan }>Date of release:</span> { movie?.release_date }
                     </p>
-                    <p className={ classes.movieRuntime }>
+                    <p className={ classes.movieFieldName }>
                         <span className={ classes.movieSpan }>Runtime:</span> { movie?.runtime } mins. 
                     </p>
-                    <p className={ classes.movieOverwiew }>
+                    <p className={ classes.movieFieldName }>
                         <span className={ classes.movieSpan }>Overview:</span> { movie?.overview }
                     </p>
                     <div className={ classes.movieNumbers }>

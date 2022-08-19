@@ -39,7 +39,7 @@ const ItemFill = () => {
  
   return (
     <>
-      <div className=' grid grid-cols-4 max-w-7xl items-center justify-items-center w-[90%] gap-10 p-5 min-h-[66.9vh]' >
+      <div className=' grid grid-cols-1 max-w-7xl items-center justify-items-center gap-10 p-5 min-h-[66.9vh] md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4' >
         { 
           loading
         && 
@@ -81,13 +81,13 @@ const ItemFill = () => {
           </h2>
         }
       </div>
-      <div className="w-1/3 flex justify-between items-center h-16 m-3">
+      <div className="md:w-[500px] w-[300px]  flex justify-between items-center h-16 m-3">
         <button 
           disabled={ page === 1 } 
           className={ classes.paginationButton } 
           onClick={ () => setPage(1) }
         >
-          &#60; &#60;
+          &#171;
         </button>
         <button 
           className={ classes.paginationButton } 
@@ -95,7 +95,7 @@ const ItemFill = () => {
         >
           &#60;
         </button>
-        <span className={ classes.paginationButton }>
+        <span className={ classes.page }>
           { page }
         </span>
         <button 
@@ -109,7 +109,7 @@ const ItemFill = () => {
           className={ classes.paginationButton } 
           onClick={ () => setPage(lastPage) }
         >
-          &#62; &#62;
+          &#187;
         </button>
       </div>
     </>

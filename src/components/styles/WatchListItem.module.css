@@ -14,6 +14,32 @@
     width: 73px;
 }
 
+@media (max-width: 1250px) {
+  .itemImage {
+    display: none;
+  }
+}
+
+@media (max-width: 1040px) {
+  .itemContainer {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 700px) {
+  .buttonsBlock {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+    align-items: center;
+  }
+  .itemContainer {
+    width: 90vw;
+  }
+}
+
 .itemHeading {
     color: white;
     font-size: 30px;

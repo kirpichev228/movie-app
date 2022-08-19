@@ -9,6 +9,7 @@ import ItemFill from './ItemFill'
 import Search from './UI/Search/Search'
 import useFilter from './customHooks/useFilter'
 import { usePage } from './customHooks/usePage'
+import classes from './styles/Navigation.module.css'
 
 
 const Navigation = () => {
@@ -37,8 +38,8 @@ const Navigation = () => {
 
     return (
         <>
-            <nav className=" h-[8vh] w-11/12 py-8  border-b flex items-center justify-between" >
-                <div className="flex gap-16 items-center">
+            <nav className={ classes.navbar } >
+                <div className={ classes.sortbar }>
                     <div className="flex gap-2">
                         <span className='text-xl'>
                             Filter:
