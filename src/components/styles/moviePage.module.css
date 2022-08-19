@@ -119,4 +119,9 @@
   .movieInfo {
     width: 90%;
   }
+  .movieHeading {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
 }
