@@ -7,7 +7,7 @@ const Header = () => {
       <h1 className=' text-4xl font-bold text-[#876afe]'>
         MovieApp
       </h1>
-      <nav className='flex gap-4'>
+      <nav className='flex gap-4' data-testid='routingLinks'>
         <Link 
           to={ '/watchlist' }
           className='text-xl hover:text-[#876afe] transition-all'

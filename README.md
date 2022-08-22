@@ -14,4 +14,5 @@ https://github.com/VarvaraZadnepriak/MoviesAPI.ReactJS
 * Tailwind.css
 * formik
 * axios
+* react-testing-library
 

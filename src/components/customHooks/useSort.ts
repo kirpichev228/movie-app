@@ -6,8 +6,6 @@ export const useSort = () => {
     const dispatch = useDispatch()
     const itemsListCopy = useSelector((state: IStoreItem) => state.itemsList)
 
-    
-
     const sortedPosts = (selectedSort: keyof IItem) => {
         
         if (selectedSort.includes(' ')) {

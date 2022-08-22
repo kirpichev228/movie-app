@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FOOTER TESTS footer GHlink 1`] = `
+<a
+  class="hover:text-[#876afe] transition-all"
+  href="https://github.com/kirpichev228/movie-app/tree/dev"
+  rel="noreferrer"
+  target="_blank"
+>
+  GitHub
+</a>
+`;
+
+exports[`FOOTER TESTS footer year 1`] = `
+<span>
+  2022
+</span>
+`;

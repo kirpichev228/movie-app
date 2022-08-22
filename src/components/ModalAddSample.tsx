@@ -27,7 +27,8 @@ const ModalAdd = ({visible, setVisible, content}:visibility) => {
     }
 
   return (
-    <div className={ rootClasses.join(' ') } onClick={ nullifyModal }>
+    
+    <div data-testid='modalWindow' className={ rootClasses.join(' ') } onClick={ nullifyModal }>
         <div className={ classes.modalContainer } onClick={ (e) => e.stopPropagation() }>
             <h2 className=" text-4xl font-thin w-full items-center flex justify-between">
                 { content === 'add' && 'ADD MOVIE' }
@@ -36,6 +37,7 @@ const ModalAdd = ({visible, setVisible, content}:visibility) => {
                 <button 
                     className=" font-semibold text-5xl pb-3 hover:text-[#876afe] transition-all"
                     onClick={ nullifyModal }
+                    data-testid='modalClose'
                 >
                     &#215;
                 </button>

@@ -95,10 +95,12 @@ const Navigation = () => {
                     
                 </div>
                 <div className="flex gap-6">
-                    <ManageBtn onClick={ ()=>{
-                        setIsOpen(true)
-                        setModalContent('add')
-                    } }
+                    <ManageBtn 
+                        onClick={ ()=>{
+                            setIsOpen(true)
+                            setModalContent('add')
+                        } }
+                        data-testid='modalOpenButton'
                     >
                         Add film
                     </ManageBtn>
