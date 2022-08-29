@@ -34,67 +34,67 @@ const defaultState: IStoreItem = {
 const reducer = (state = defaultState, action: reducerActionType) => {
     switch(action.type) {
 
-        case MovieAsctionEnum.pick:
+        case MovieAsctionEnum.PICK_MOVIE:
             return {...state, item: state.item = action.payload}
 
-        case MovieAsctionEnum.delete:
+        case MovieAsctionEnum.DELETE_MOVIE:
             return {...state, item: state.item = state.itemsList[action.payload]}
             
-        case MovieAsctionEnum.edit:
+        case MovieAsctionEnum.EDIT_MOVIE:
             return {...state, item: state.item = action.payload}
     
-        case ListFilterEnum.set:
+        case ListFilterEnum.SET:
             return {...state, itemsList: state.itemsList = action.payload}
         
-        case ListFilterEnum.search:
+        case ListFilterEnum.SEARCH:
             return {...state, itemsList: action.payload}
 
-        case ListFilterEnum.setPage:
+        case ListFilterEnum.SET_PAGE:
             return {...state, pagination: state.pagination = action.payload}
 
-        case ListFilterEnum.setPageItems:
+        case ListFilterEnum.SET_PAGE_ITEMS:
             return {...state, pageItems: state.pageItems = action.payload}
 
-        case ListFilterEnum.setCopy:
+        case ListFilterEnum.SET_COPY:
             return {...state, itemsListCopy: state.itemsListCopy = action.payload}
 
-        case ListFilterEnum.setStart:
+        case ListFilterEnum.SET_START:
             return {...state, pageStartIndex: state.pageStartIndex = action.payload}
 
-        case ListFilterEnum.setEnd:
+        case ListFilterEnum.SET_END:
             return {...state, pageEndIndex: state.pageEndIndex = action.payload}
             
-        case ListFilterEnum.edit:
+        case ListFilterEnum.EDIT_LIST:
             return {...state, itemsList: state.itemsListCopy[action.payload] = action.value}
         
-        case ListFilterEnum.add:
+        case ListFilterEnum.ADD_MOVIES:
             return {...state, itemsList: state.itemsListCopy.unshift(action.payload) }
 
-        case ListFilterEnum.delete: 
+        case ListFilterEnum.DELETE_MOVIES: 
             return {...state, itemsList: state.itemsListCopy.splice(action.payload, 1)}
         
-        case ModalEnum.open:
+        case ModalEnum.OPEN_MODAL:
             return {...state, modalOpen: action.payload}
 
-        case ModalEnum.setContent:
+        case ModalEnum.SET_CONTENT:
             return {...state, content: action.payload}
 
-        case ModalEnum.deleteCheck:
+        case ModalEnum.DELETE_CHECK:
             return {...state, deleted: action.payload}
 
-        case WatchListEnum.push:
+        case WatchListEnum.PUSH_TO_LIST:
             return {...state, watchList: state.watchList.concat(action.movie)}
         
-        case WatchListEnum.delete:
+        case WatchListEnum.DELETE_FROM_LIST:
             return {...state, watchList: state.watchList = action.movie }
 
-        case WatchListEnum.clear:
+        case WatchListEnum.CLEAR_LIST:
             return {...state, watchList: state.watchList = []}
 
-        case GenreSort.addGenre:
+        case GenreSort.ADD_GENRE:
             return {...state, selectedGenres: state.selectedGenres.concat(action.genre) }
 
-        case GenreSort.deleteGenre:
+        case GenreSort.DELETE_GENRE:
             return {...state, selectedGenres: state.selectedGenres.filter(item => item !== action.genre) }
 
         default:

@@ -22,7 +22,7 @@ const ModalAdd = ({visible, setVisible, content}:visibility) => {
     const open = useSelector((state: IStoreItem) => state.modalOpen)
 
     const nullifyModal = () => {
-        dispatch({type:ModalEnum.open, payload: false})
+        dispatch({type:ModalEnum.OPEN_MODAL, payload: false})
         setVisible(open)
     }
 

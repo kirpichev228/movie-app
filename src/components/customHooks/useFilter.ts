@@ -11,21 +11,21 @@ const useFilter = () => {
     const filteredMovies = (selectedGenre: keyof IItem) => {
         if (selectedGenre.length === 0) {
             dispatch({
-                type: ListFilterEnum.set,
+                type: ListFilterEnum.SET,
                 payload: itemsList
             })
             dispatch({
-                type: ListFilterEnum.setPageItems,
+                type: ListFilterEnum.SET_PAGE_ITEMS,
                 payload: itemsList.slice(startIndex, endIndex)
             })
         } else {
             const filter = itemsList.filter((item:IItem) => item.genres.includes(selectedGenre))
             dispatch({
-                type: ListFilterEnum.set,
+                type: ListFilterEnum.SET,
                 payload: filter
             })
             dispatch({
-                type: ListFilterEnum.setPageItems,
+                type: ListFilterEnum.SET_PAGE_ITEMS,
                 payload: filter.slice(startIndex, endIndex)
             })
         }       

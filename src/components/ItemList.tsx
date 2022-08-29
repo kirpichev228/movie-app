@@ -8,7 +8,7 @@ import Item from './Item'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import usePage from './customHooks/usePage'
 
-const ItemFill = () => {
+const ItemList = () => {
 
   const { loading, error } = useItems()
   const dispatch = useDispatch()
@@ -23,16 +23,16 @@ const ItemFill = () => {
 
   setTimeout(()=> {
     dispatch({
-      type: ModalEnum.deleteCheck,
+      type: ModalEnum.DELETE_CHECK,
       payload: false
     })
   }, 2000)
 
   const pickMovie = (item:IItem) => {
-    dispatch({type: MovieAsctionEnum.pick, payload: item} )
+    dispatch({type: MovieAsctionEnum.PICK_MOVIE, payload: item} )
     router(`/posts/${item.id}`)
     dispatch({
-      type: ModalEnum.deleteCheck,
+      type: ModalEnum.DELETE_CHECK,
       payload: false
     })    
   }
@@ -117,4 +117,4 @@ const ItemFill = () => {
   )
 }
 
-export default ItemFill
+export default ItemList

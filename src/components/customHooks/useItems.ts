@@ -15,15 +15,15 @@ export function useItems () {
             setLoading(true)
             const response = await axios.get<IMoviesResponce>('http://localhost:4000/movies?limit=4000')
             dispatch({
-                type: ListFilterEnum.set, 
+                type: ListFilterEnum.SET, 
                 payload: response.data.data
             })
             dispatch({
-                type: ListFilterEnum.setCopy, 
+                type: ListFilterEnum.SET_COPY, 
                 payload: response.data.data
             }) 
             dispatch({
-                type: ListFilterEnum.setPageItems, 
+                type: ListFilterEnum.SET_PAGE_ITEMS, 
                 payload: response.data.data.slice(0, 24)
             })  
             setLoading(false)            

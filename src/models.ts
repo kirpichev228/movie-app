@@ -69,40 +69,40 @@ export type reducerActionType = {
 }
 
 export enum MovieAsctionEnum  {
-    add = 'ADD_MOVIE',
-    pick = 'PICK_MOVIE',
-    delete = 'DELETE_MOVIE',
-    edit = 'EDIT_MOVIE',
-    cancel = 'CANCEL'
+    ADD_MOVIE = 'ADD_MOVIE',
+    PICK_MOVIE = 'PICK_MOVIE',
+    DELETE_MOVIE = 'DELETE_MOVIE',
+    EDIT_MOVIE = 'EDIT_MOVIE',
+    CANCEL = 'CANCEL'
 }
 
 export enum ListFilterEnum {
-    set = 'SET_LIST',
-    search = 'SEARCH',
-    setCopy = 'SET_COPY',
-    edit = 'EDIT_LIST',
-    add = 'ADD_MOVIES',
-    delete = 'Delete_movies',
-    setPage = 'SET_PAGE',
-    setPageItems = 'SET_PAGE_ITEMS',
-    setStart = 'SET_START',
-    setEnd = 'SET_END'
+    SET = 'SET_LIST',
+    SEARCH = 'SEARCH',
+    SET_COPY = 'SET_COPY',
+    EDIT_LIST = 'EDIT_LIST',
+    ADD_MOVIES = 'ADD_MOVIES',
+    DELETE_MOVIES = 'DELETE_MOVIES',
+    SET_PAGE = 'SET_PAGE',
+    SET_PAGE_ITEMS = 'SET_PAGE_ITEMS',
+    SET_START = 'SET_START',
+    SET_END = 'SET_END'
 }
 
 export enum ModalEnum {
-    open = 'OPEN_MODAL',
-    setContent = 'SET_CONTENT',
-    deleteCheck = 'DELETE_CHECK',
+    OPEN_MODAL = 'OPEN_MODAL',
+    SET_CONTENT = 'SET_CONTENT',
+    DELETE_CHECK = 'DELETE_CHECK',
 }
 
 export enum WatchListEnum {
-    push = 'PUSH_TO_LIST',
-    delete = 'DELETE_FROM_LIST',
-    clear = 'CLEAR_LIST'
+    PUSH_TO_LIST = 'PUSH_TO_LIST',
+    DELETE_FROM_LIST = 'DELETE_FROM_LIST',
+    CLEAR_LIST = 'CLEAR_LIST'
 }
 
 export enum GenreSort {
-    addGenre = 'ADD_GENRE',
-    deleteGenre = 'DELETE_GENRE',
-    clear = 'CLEAR_GENRES'
+    ADD_GENRE = 'ADD_GENRE',
+    DELETE_GENRE = 'DELETE_GENRE',
+    CLEAR_GENRES = 'CLEAR_GENRES'
 }

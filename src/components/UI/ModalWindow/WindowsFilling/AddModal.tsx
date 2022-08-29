@@ -63,11 +63,11 @@ const AddModal = () => {
                 try{
                     const response = await axios.post('http://localhost:4000/movies', values)
                     dispatch({
-                        type: MovieAsctionEnum.edit,
+                        type: MovieAsctionEnum.EDIT_MOVIE,
                         payload: values
                     })
                     dispatch({
-                        type: ListFilterEnum.add,
+                        type: ListFilterEnum.ADD_MOVIES,
                         payload: values
                     })
                     setSucсess(1)

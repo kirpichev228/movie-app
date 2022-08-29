@@ -28,9 +28,9 @@ const Item = ({ item, ...props }: productProps, ) => {
             ></img>
             <div className={ classes.movieInfo } onClick={ e => e.stopPropagation() }>
                 <h3 className="item-name font-bold text-xl">
-                    { item.title.length > 21 
+                    { item.title.length > 20 
                         ? 
-                        item.title.slice(0,19) + '...'
+                        item.title.slice(0,18) + '...'
                         : item.title
                     }
                 </h3>

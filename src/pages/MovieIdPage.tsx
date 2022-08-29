@@ -18,7 +18,7 @@ const MovieIdPage = () => {
     const dispatch = useDispatch()
 
     dispatch({
-        type: MovieAsctionEnum.pick, 
+        type: MovieAsctionEnum.PICK_MOVIE, 
         payload: movie
     })
 
@@ -109,11 +109,11 @@ const MovieIdPage = () => {
                     <div className={ classes.buttons }>
                         <ManageBtn onClick={ ()=>{
                             dispatch(
-                                {type: ModalEnum.open, 
+                                {type: ModalEnum.OPEN_MODAL, 
                                 payload: true
                             })
                             dispatch(
-                                {type: ModalEnum.setContent, 
+                                {type: ModalEnum.SET_CONTENT, 
                                 payload: 'edit'
                             })
                         } }
@@ -122,11 +122,11 @@ const MovieIdPage = () => {
                         </ManageBtn>
                         <ManageBtn onClick={ ()=>{
                             dispatch({
-                                type: ModalEnum.open, 
+                                type: ModalEnum.OPEN_MODAL, 
                                 payload: true
                             })
                             dispatch({
-                                type: ModalEnum.setContent, 
+                                type: ModalEnum.SET_CONTENT, 
                                 payload: 'delete'
                             })
                         } }
@@ -136,7 +136,7 @@ const MovieIdPage = () => {
                         { !watchList.includes(item?.id) &&
                             <ManageBtn onClick={ ()=>{                           
                                 dispatch({
-                                    type: WatchListEnum.push,
+                                    type: WatchListEnum.PUSH_TO_LIST,
                                     movie: movie?.id
                                 })
                             } }

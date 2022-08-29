@@ -21,10 +21,10 @@ const WatchListItem = (props: WatchListType) => {
         const itemIndex = watchList.indexOf(props.id, 0);
         watchList.splice(itemIndex, 1)
         dispatch({
-            type: WatchListEnum.delete,
+            type: WatchListEnum.DELETE_FROM_LIST,
             movie: watchList
         })  
-        setStyle({display: 'none'})
+        setStyle({ display: 'none' })
     }
 
     function imgDefault ({ currentTarget }: any): void {
@@ -50,7 +50,7 @@ const WatchListItem = (props: WatchListType) => {
                 Delete from the list
             </ManageBtn>
             <Link 
-                to={`/posts/${ props.id }`} 
+                to={ `/posts/${ props.id }` } 
                 className={ classes.manageBtns }
             >
                 TO MOVIE PAGE

@@ -20,7 +20,7 @@ const EditModal = () => {
         try{
             let origMovie = movieList.indexOf(currentMovie)
             dispatch({
-                type: ListFilterEnum.edit,
+                type: ListFilterEnum.EDIT_LIST,
                 payload: origMovie,
                 value: values
             })

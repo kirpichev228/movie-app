@@ -9,20 +9,21 @@ const WatchList = () => {
   const watchList = useSelector((state: IStoreItem) => state.watchList)
   const dispatch = useDispatch()
 
-  const listClear = () => {dispatch({
-    type: WatchListEnum.clear
-  }) }
+  const clearList = React.useCallback(() => {
+    dispatch({
+      type: WatchListEnum.CLEAR_LIST
+  }) }, [])
 
   return (
     <div className="bg-[#17161b] w-full flex flex-col items-center min-h-[80vh] p-4">
       { watchList.length !== 0 && 
       <ManageBtn
-        onClick={ listClear }
+        onClick={ clearList }
       >
         Clear WatchList
       </ManageBtn> }
-      {watchList.length === 0 && <p className='text-white text-4xl' >WatchList Is Empty!</p>}
-      {watchList.map((item) => <WatchListItem id={item} /> )}
+      { watchList.length === 0 && <p className='text-white text-4xl' >WatchList Is Empty!</p> }
+      { watchList.map((item) => <WatchListItem id={item} /> ) }
     </div>
     
   )

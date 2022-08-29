@@ -18,15 +18,15 @@ const DeleteModal = () => {
       let origMovie = movieListCopy.indexOf(currentMovie)
       await axios.delete(`http://localhost:4000/movies/${currentMovieId}`)
       dispatch({
-        type: ListFilterEnum.delete,
+        type: ListFilterEnum.DELETE_MOVIES,
         payload: origMovie
       })
       dispatch({
-        type: ModalEnum.deleteCheck,
+        type: ModalEnum.DELETE_CHECK,
         payload: true
       })  
       dispatch({
-        type: ModalEnum.open,
+        type: ModalEnum.OPEN_MODAL,
         payload: false
       }) 
     }

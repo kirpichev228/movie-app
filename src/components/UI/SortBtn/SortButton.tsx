@@ -17,17 +17,15 @@ const SortButton = (props:btnType) => {
     setisPicked(!isPicked)
     if (genresList.includes(props.children.toLowerCase())){
       dispatch({
-        type: GenreSort.deleteGenre,
+        type: GenreSort.DELETE_GENRE,
         genre: props.children.toLowerCase()
       })
     } else {
       dispatch({
-        type: GenreSort.addGenre,
+        type: GenreSort.ADD_GENRE,
         genre: props.children.toLowerCase()
       })
-    }
-    console.log(genresList);
-    
+    }    
   }
 
   return (

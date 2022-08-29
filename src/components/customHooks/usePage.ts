@@ -7,27 +7,27 @@ export const usePage = () => {
     const itemsListCopy = useSelector((state: IStoreItem) => state.itemsList)
     const dispatch = useDispatch()
   
-    const setPage = (n:number) => {
-        if (n * 24 > itemsListCopy.length+24 || n <= 0) {
+    const setPage = (pageNumber:number) => {
+        if (pageNumber * 24 > itemsListCopy.length+24 || pageNumber <= 0) {
             return
           } else {
-            let b = n * 24
-            let a = b - 24
+            let pageLastItemNumber = pageNumber * 24
+            let pageFirstItemNumber = pageLastItemNumber - 24
             dispatch({
-                type: ListFilterEnum.setStart,
-                payload: a
+                type: ListFilterEnum.SET_START,
+                payload: pageFirstItemNumber
               })
               dispatch({
-                type: ListFilterEnum.setEnd,
-                payload: b
+                type: ListFilterEnum.SET_END,
+                payload: pageLastItemNumber
               })
               dispatch({
-                type: ListFilterEnum.setPageItems,
-                payload: itemsListCopy.slice(a, b)
+                type: ListFilterEnum.SET_PAGE_ITEMS,
+                payload: itemsListCopy.slice(pageFirstItemNumber, pageLastItemNumber)
               })
               dispatch({
-                type: ListFilterEnum.setPage,
-                payload: n
+                type: ListFilterEnum.SET_PAGE,
+                payload: pageNumber
               })
           }
     }

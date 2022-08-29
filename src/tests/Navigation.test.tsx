@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 
 import '@testing-library/jest-dom'
-import Navigation from '../components/Navigation'
+import NavigationBar from '../components/NavigationBar'
 import { Provider } from 'react-redux';
 import { store } from '../redux/store';
 
@@ -12,7 +12,7 @@ describe('NAVIGATION TESTS', () => {
         render(
             <BrowserRouter>
                 <Provider store={store}>
-                    <Navigation/>
+                    <NavigationBar/>
                 </Provider>
             </BrowserRouter>
         )
@@ -24,7 +24,7 @@ describe('NAVIGATION TESTS', () => {
         render(
             <BrowserRouter>
                 <Provider store={store}>
-                    <Navigation/>
+                    <NavigationBar/>
                 </Provider>
             </BrowserRouter>
         )
@@ -36,7 +36,7 @@ describe('NAVIGATION TESTS', () => {
         render(
             <BrowserRouter>
                 <Provider store={store}>
-                    <Navigation/>
+                    <NavigationBar/>
                 </Provider>
             </BrowserRouter>
         )
@@ -48,7 +48,7 @@ describe('NAVIGATION TESTS', () => {
         render(
             <BrowserRouter>
                 <Provider store={store}>
-                    <Navigation/>
+                    <NavigationBar/>
                 </Provider>
             </BrowserRouter>
         )
@@ -60,7 +60,7 @@ describe('NAVIGATION TESTS', () => {
         render(
             <BrowserRouter>
                 <Provider store={store}>
-                    <Navigation/>
+                    <NavigationBar/>
                 </Provider>
             </BrowserRouter>
         )

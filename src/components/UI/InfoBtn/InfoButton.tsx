@@ -59,11 +59,11 @@ const InfoButton = ({id}: PropsType) => {
                 onClick={(e)=>{
                   e.stopPropagation()
                   dispatch({
-                    type: WatchListEnum.push,
+                    type: WatchListEnum.PUSH_TO_LIST,
                     movie: id
                   })
                   dispatch({
-                    type: MovieAsctionEnum.pick, 
+                    type: MovieAsctionEnum.PICK_MOVIE, 
                     payload: item
                   } )
                   }
