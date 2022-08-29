@@ -1,0 +1,109 @@
+.movieContainer {
+  width: 300px;
+  background-color: #1b1a1c;
+  border: 2px solid #37363b;
+  transition-duration: 0.3s;
+  border-radius: 17px;
+}
+
+.movieContainer:hover {
+  cursor: pointer;
+  border: 2px solid #876afe;
+  transition-duration: 0.3s;
+  border-radius: 0;
+}
+
+.movieContainer:hover > .itemImg {
+  border-radius: 0;
+  transition-duration: 0.3s;
+}
+
+.movieInfo {
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemImg {
+  width: 300px;
+  height: 450px;
+  border-top-left-radius: 17px;
+  border-top-right-radius: 17px;
+  transition-duration: 0.3s;
+}
+
+.movieGenres {
+  transition-duration: 0.3s;
+  opacity: 0.8;
+  padding: 8px;
+  font-size: 0.875rem;
+  /* /* line-height: 1.25rem; */
+  height: 100%;
+}
+
+.infoBtn {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  margin-left: 256px;
+  margin-top: 12px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(51 65 85 / var(--tw-border-opacity));
+  border-radius: 20px;
+  transform: rotate(90deg);
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 15.5px;
+  display: flex;
+  justify-content: center;
+  transition-duration: 0.3s;
+}
+
+.infoBtn:hover {
+  transition-duration: 0.3s;
+  background-color: #876afe;
+  cursor: pointer;
+}
+
+.infoBtn:active {
+  background-color: aliceblue;
+  color: black;
+  transition-duration: 0.3s;
+}
+
+.menuContainer {
+  position: absolute;
+  width: 296px;
+  color: white;
+  background-color: #876afe;
+  border-top-left-radius: 17px;
+  border-top-right-radius: 17px;
+  display: flex;
+  flex-direction: column;
+  transition-duration: 0.3s;
+}
+
+.movieContainer:hover > .menuContainer {
+  border-radius: 0;
+  transition-duration: 0.3s;
+}
+
+.menuButton {
+  height: 32px;
+  text-align: left;
+  padding: 0 8px;
+  border: 1px solid #1b1a1f;
+  transition-duration: 0.3s;
+
+}
+
+.menuButton:hover {
+  border: 1px solid #876afe;
+  background-color: white;
+  color: black;
+  transition-duration: 0.3s;
+}

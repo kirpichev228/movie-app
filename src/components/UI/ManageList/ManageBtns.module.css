@@ -1,0 +1,35 @@
+.manageBtns {
+  background-color: #876afe;
+  padding: 3px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition-duration: 0.3s;
+  position: relative;
+  border: none;
+  z-index: 1;
+}
+
+.manageBtns:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 8px;
+  background-color: aliceblue;
+  transition: all 0.3s ease;
+}
+.manageBtns:hover {
+  color: #000;
+}
+.manageBtns:hover:after {
+  top: auto;
+  bottom: 0;
+  height: 100%;
+}
+.manageBtns:active {
+  top: 2px;
+}

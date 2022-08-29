@@ -1,0 +1,127 @@
+.modalWindow {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+
+.modalWindow.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer {
+  width: 450px;
+  padding: 30px 30px;
+  border: 2px solid #876afe;
+  background-color: #211e21;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+@media (max-width: 640px) {
+  .modalContainer {
+    margin: 10px;
+    padding: 10px 20px;
+  }
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="date"] {
+  ::-webkit-calendar-picker-indicator {
+    background-color: #876afe;
+  }
+}
+
+.submitButton {
+  width: 130px;
+  height: 40px;
+  border: #876afe 2px solid;
+  background-color: #876afe;
+  border-radius: 7px;
+  font-size: 19px;
+  transition-duration: 0.3s;
+  color: white;
+  align-self: center;
+  margin-top: 15px;
+}
+
+.cancelButton {
+  width: 130px;
+  height: 40px;
+  margin-right: 15px;
+  border: #876afe 2px solid;
+  border-radius: 7px;
+  font-size: 19px;
+  transition-duration: 0.3s;
+  color: #876afe;
+  align-self: flex-start;
+}
+
+.cancelButton:hover {
+  background-color: #876afe;
+  color: white;
+  transition-duration: 0.3s;
+}
+
+.submitButton:hover {
+  background-color: ivory;
+  color: #876afe;
+  transition-duration: 0.3s;
+}
+
+.modalDeleted {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 200px;
+  height: 50px;
+  background-color: #211e21;
+  border: #876afe 2px solid;
+  color: #876afe;
+  font-weight: 300;
+  font-size: 30px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paginationButton,
+.page {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #211e21;
+  border: #876afe 2px solid;
+  border-radius: 25px;
+  color: white;
+  transition-duration: 0.3s;
+  font-size: 20px;
+}
+
+.paginationButton:hover {
+  background-color: #876afe;
+  transition-duration: 0.3s;
+}
+
+.paginationButton:active {
+  background-color: white;
+  color: #211e21;
+  transition-duration: 0.2s;
+}

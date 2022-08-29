@@ -1,0 +1,22 @@
+.infoContainer {
+    height: 530px;
+    width: 100%;
+    padding: 40px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(/src/assets/bluredBack.png);
+    background-size: cover;
+}
+
+
+
+.descriptionContainer {
+    height: 400px;
+    padding-left: 50px;
+    display: grid;
+    grid-template-columns: minmax(auto, 900px);
+    align-items: flex-start;
+    justify-content: space-between;
+}
